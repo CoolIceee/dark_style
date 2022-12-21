@@ -6,15 +6,17 @@ import { Search } from './Search'
 
 export const Header: React.FC = () => {
   return (
-    <div className=' flex  mx-auto  w-full h-16 px-9 border-solid border-b-2 border-blue-50'>
+    <div className=' flex  mx-auto  w-11/12 h-16 px-9 border-solid border-b-2 border-blue-100'>
       <nav className=' flex self-center w-full h-10 '>
-        <div>
-          <Logo />
-        </div>
-        <ul className='flex self-center justify-end w-full h-full'>
-          <li className='px-20 flex self-center'>
+        <ul className='flex self-center justify-start w-full h-full'>
+          <li className='px-2 flex self-center'>
+            <Logo />
+          </li>
+          <li className='px-10 flex self-center'>
             <Search />
           </li>
+        </ul>
+        <ul className='flex self-center justify-end w-full h-full'>
           <li className='px-2 flex self-center'>
             <Profile />
           </li>

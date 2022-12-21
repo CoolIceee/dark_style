@@ -3,3 +3,11 @@ export interface ICategory {
   name: string
   __v: number
 }
+
+ export interface ISubcategories {
+   _id: string
+   name: string
+   category: string
+   floorCategory: string
+   __v: number
+ }
