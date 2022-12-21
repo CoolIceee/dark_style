@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
+    "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.0",
     "axios": "^1.2.1",
     "eslint-config-prettier": "^8.5.0",
@@ -28,7 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.{ts,tsx,css}\"",
-    "lint": "eslint ./src --ext .js,.tsx,.ts"
+    "lint": "eslint ./src --ext .js,.tsx,.ts",
+    "lint:fix": "eslint src/**/*.{tsx,ts} --fix"
   },
   "eslintConfig": {
     "extends": [

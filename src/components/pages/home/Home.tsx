@@ -1,7 +1,7 @@
 import { useSearchCategoryQuery } from '../../../store/category/category.api'
 
 export const Home: React.FC = () => {
-  const { isLoading, isError, data } = useSearchCategoryQuery('svrw')
+  const { data } = useSearchCategoryQuery('')
   console.log(data)
   return (
     <>

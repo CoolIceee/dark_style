@@ -7,5 +7,5 @@ module.exports = {
   jsxSingleQuote: true,
   arrowParens: 'always',
   useTabs: false,
-  plugins: [],
+  plugins: []
 }
