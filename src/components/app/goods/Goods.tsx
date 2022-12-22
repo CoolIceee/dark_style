@@ -1,4 +1,4 @@
-import { useGetDataCategoryQuery } from '../../../store/product/product.api'
+import { useGetDataCategoryQuery } from '../../../store/get.api/get.api'
 
 interface categoryProps {
   categoryId: string

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import { useSearchCategoryQuery } from '../../../store/category/category.api'
+import { useSearchCategoryQuery } from '../../../store/get.api/get.api'
 
 export const Categories: React.FC = () => {
   const { data } = useSearchCategoryQuery('')
@@ -12,10 +12,7 @@ export const Categories: React.FC = () => {
           {data?.map((item) => {
             return (
               <li key={item._id}>
-                <NavLink
-                  className={'focus:border-blue-600 border-solid border-b-2 border-white'}
-                  to={item._id}
-                >
+                <NavLink className='' to={item._id}>
                   {item.name}
                 </NavLink>
               </li>
