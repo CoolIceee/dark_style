@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom'
+
 import { useGetDataCategoryQuery } from '../../../store/get.api/get.api'
 
 interface categoryProps {
@@ -10,6 +12,7 @@ export const Goods: React.FC<categoryProps> = (props) => {
   return (
     <>
       <div>
+        <Outlet/>
         {data?.map((item) => {
           return <div key={item._id}>{item.name}</div>
         })}

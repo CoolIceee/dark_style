@@ -5,10 +5,12 @@ import { RouterFile } from './RouterFile'
 
 export const App: React.FC = () => {
   return (
-    <>
+    <div className='w-full'>
       <Header />
-      <Categories/>
-      <RouterFile />
-    </>
+      <div className='w-11/12 m-auto'>
+        <Categories />
+        <RouterFile />
+      </div>
+    </div>
   )
 }

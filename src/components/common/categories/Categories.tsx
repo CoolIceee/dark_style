@@ -7,11 +7,11 @@ export const Categories: React.FC = () => {
 
   return (
     <>
-      <div className='mx-auto mt-5 w-11/12'>
-        <ul className='flex justify-around '>
+      <div className='mx-auto mt-5 w-auto'>
+        <ul className='flex justify-between '>
           {data?.map((item) => {
             return (
-              <li key={item._id}>
+              <li className='text-[14px]' key={item._id}>
                 <NavLink className='' to={item._id}>
                   {item.name}
                 </NavLink>
