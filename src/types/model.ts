@@ -1,8 +1,16 @@
+export interface typeProduct {
+  _id: string
+  name: string
+  category: string
+  floorCategory: string
+  __v: number
+}
+
 export interface IProduct {
   _id: string
   name: string
   subcategories: string
-  typeProduct: string
+  typeProduct: typeProduct
   brand: string
   photo: string[]
   dimensions: string[]
@@ -19,10 +27,16 @@ export interface ICategory {
   __v: number
 }
 
+export interface ISubCategory {
+  _id: string
+  name: string
+  __v: number
+}
+
 export interface ISubcategories {
   _id: string
   name: string
-  category: string
+  category: ISubCategory
   floorCategory: string
   __v: number
 }

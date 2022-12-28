@@ -10,7 +10,6 @@ import { Goods } from './goods/Goods'
 export const RouterFile: React.FC = () => {
   const { data } = useSearchCategoryQuery('')
   const { data: productQuery } = useGetProductQuery('')
-
   return (
     <Routes>
       <Route path='/' element={<Home />}>
@@ -18,8 +17,12 @@ export const RouterFile: React.FC = () => {
       </Route>
       {data?.map((item) => {
         return (
-          <Route path={item._id} element={<Goods categoryId={item._id} />} key={item._id}>
-            <Route index element={<Cards product={productQuery} />} />
+          <Route
+            path={item._id}
+            element={<Goods categoryId={item._id} categoryName={item.name} />}
+            key={item._id}
+          >
+            <Route index element={<Cards product={item._id} />} />
           </Route>
         )
       })}

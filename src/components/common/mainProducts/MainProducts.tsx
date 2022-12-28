@@ -5,16 +5,26 @@ export const MainProducts: React.FC = () => {
 
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat]'>
-      <span className='text-base text-blue-800 border-solid border-b-2 border-blue-800 cursor-pointer'>
-        Главная страница
-      </span>
+      <div className='text-lg cursor-pointer text-blue-600'>Главная страница</div>
       <div className=' mx-auto flex w-auto  flex-wrap  '>
         {data?.map((item) => {
           return (
-            <div className='w-[300] h-auto mt-7 ml-9 bg-slate-50' key={item._id}>
-              <img className='w-full h-[380px] object-cover' src={item.photo[0]} />
-              <div className='border-solid border-[5px] border-slate-200'></div>
-              <div className=' pt-2 pl-2'>{item.name}</div>
+            <div
+              className='w-[300px] h-auto ml-5 mt-5 border-[1px] cursor-pointer border-solid rounded-[5px]  ease-in '
+              key={item._id}
+            >
+              <div className='flex justify-center items-center w-full h-[380px] overflow-hidden ease-in '>
+                <img
+                  className='w-[270px] h-[350px] object-cover rounded-[5px] hover:scale-[1.2] transition ease-in '
+                  src={item.photo[0]}
+                />
+              </div>
+              <div className='border-solid border-[2px]'></div>
+              <div className='pt-2 pl-[15px]'>
+                <div className='pb-1 text-sm'>{item.name}</div>
+                <div className='text-xs text-gray-500 pb-1'>{item.typeProduct.name}</div>
+                <div className='flex justify-end pr-5 pb-3'>{item.price}р</div>
+              </div>
             </div>
           )
         })}

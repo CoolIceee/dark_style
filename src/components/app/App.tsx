@@ -5,7 +5,7 @@ import { RouterFile } from './RouterFile'
 
 export const App: React.FC = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full font-[Montserrat]'>
       <Header />
       <div className='w-11/12 m-auto'>
         <Categories />

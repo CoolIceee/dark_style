@@ -10,7 +10,12 @@ export const getApi = createApi({
   endpoints: (build) => ({
     searchCategory: build.query<ICategory[], string>({
       query: (search: string) => ({
-        url: 'category/site/category'
+        url: 'category/category'
+      })
+    }),
+    getOneCategory: build.query<ICategory[], string>({
+      query: (search: string) => ({
+        url: `category/category/${search}`
       })
     }),
     getDataCategory: build.query<ISubcategories[], string>({
@@ -22,8 +27,21 @@ export const getApi = createApi({
       query: (search: string) => ({
         url: `product/get`
       })
+    }),
+    getOneCategoryProduct: build.query<IProduct[], string>({
+      query: (search: string) => ({
+      
+        url: `product/get/${search}`
+      })
     })
   })
 })
 
-export const { useSearchCategoryQuery, useGetDataCategoryQuery, useGetProductQuery } = getApi
+export const {
+  useSearchCategoryQuery,
+  useGetDataCategoryQuery,
+  useGetProductQuery,
+  useGetOneCategoryQuery,
+  useGetOneCategoryProductQuery,
+  
+} = getApi
