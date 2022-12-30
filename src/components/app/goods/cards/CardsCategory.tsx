@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom'
-import { useGetOneCategoryProductQuery } from 'store/get.api/get.api'
 
 interface productProps {
   product: string
 }
 export const Cards: React.FC<productProps> = ({ product }) => {
-  const { data } = useGetOneCategoryProductQuery(product)
+  // const { data } = useGetOneCategoryProductQuery(product)
   
   return (
     <>
@@ -14,7 +13,7 @@ export const Cards: React.FC<productProps> = ({ product }) => {
           Главная страница
         </NavLink>
         <div className=' mx-auto flex w-auto  flex-wrap  '>
-          {data?.map((item) => {
+          {/* {data?.map((item) => {
             return (
               <div
                 className='w-[240px] h-auto ml-5 mt-5 border-[1px] cursor-pointer border-solid rounded-[5px]  ease-in '
@@ -34,7 +33,7 @@ export const Cards: React.FC<productProps> = ({ product }) => {
                 </div>
               </div>
             )
-          })}
+          })} */}
         </div>
       </div>
     </>

@@ -1,13 +1,17 @@
-import { useGetProductQuery } from '../../../store/get.api/get.api'
-
+import { useAppDispatch, useAppSelector } from 'hooks/hooks'
+import { useEffect } from 'react'
+import { getProduct } from 'store/features/productSlice'
 export const MainProducts: React.FC = () => {
-  const { data } = useGetProductQuery('')
-
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(getProduct())
+  }, [dispatch])
+  const product = useAppSelector((state) => state.product.product)
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat]'>
       <div className='text-lg cursor-pointer text-blue-600'>Главная страница</div>
       <div className=' mx-auto flex w-auto  flex-wrap  '>
-        {data?.map((item) => {
+        {product?.map((item) => {
           return (
             <div
               className='w-[300px] h-auto ml-5 mt-5 border-[1px] cursor-pointer border-solid rounded-[5px]  ease-in '

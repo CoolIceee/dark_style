@@ -1,9 +1,8 @@
+import { useAppDispatch, useAppSelector } from 'hooks/hooks'
+import { useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
-import {
-  useGetDataCategoryQuery,
-  useGetOneCategoryProductQuery
-} from '../../../store/get.api/get.api'
+import { getOneDataSubcategories } from '../../../store/features/subcategoriesSlice'
 
 interface categoryProps {
   categoryId: string
@@ -11,12 +10,19 @@ interface categoryProps {
 }
 
 export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => {
-  const { isFetching, data } = useGetDataCategoryQuery(categoryId)
-
-  const handleClickId = (id: string): string => {
-    useGetDataCategoryQuery(categoryId + '/' + id)
-    return id
+  // const { isFetching, data } = useGetDataCategoryQuery(categoryId)
+  // console.log(data)
+  const handleClickId = (id: string): void => {
+    console.log(id)
   }
+  console.log(categoryId)
+
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(getOneDataSubcategories(categoryId))
+  }, [dispatch, categoryId])
+  const subcategories = useAppSelector((state) => state.subcategory.subcategories)
+  const isLoading = useAppSelector((state) => state.subcategory.isLoading)
 
   return (
     <>
@@ -24,19 +30,20 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
         <div className='w-[300px] h-full mt-10  rounded'>
           <div className='font-bold border-b-2 border-solid'>{categoryName}</div>
           <div className='mt-[10px]'>
-            {isFetching ? (
+            {isLoading ? (
               <div className='pl-5'>Загрузка...</div>
             ) : (
               <>
-                {data?.map((item) => {
+                {subcategories?.map((item) => {
                   return (
-                    <div
+                    <NavLink
+                      to={item._id}
                       onClick={() => handleClickId(item._id)}
                       className='flex items-center w-full h-[35px] text-sm  pl-5 cursor-pointer hover:bg-blue-200 rounded-[3px]'
                       key={item._id}
                     >
                       {item.name}
-                    </div>
+                    </NavLink>
                   )
                 })}
               </>

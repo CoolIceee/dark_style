@@ -1,3 +1,11 @@
+// Category model
+export interface ICategory {
+  _id: string
+  name: string
+  __v: number
+}
+
+
 export interface typeProduct {
   _id: string
   name: string
@@ -18,12 +26,6 @@ export interface IProduct {
   price: number
   discountPrice?: number
   quantity: number
-  __v: number
-}
-
-export interface ICategory {
-  _id: string
-  name: string
   __v: number
 }
 
