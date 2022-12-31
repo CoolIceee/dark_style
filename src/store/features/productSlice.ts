@@ -21,7 +21,6 @@ export const getOneCategoryProduct = createAsyncThunk<IProduct[], string, { reje
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(`http://localhost:7777/product/get/${id}`)
-
       const data = await response.data
 
       return data
@@ -59,7 +58,7 @@ const initialState: CategoryState = {
 }
 
 const productSlice = createSlice({
-  name: 'category',
+  name: 'product',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

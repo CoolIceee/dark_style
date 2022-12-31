@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getProduct } from 'store/features/productSlice'
 
 import addBasket from '../../../assets/addBasket.png'
@@ -8,6 +9,7 @@ import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
 
 export const MainProducts: React.FC = () => {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getProduct())
@@ -19,9 +21,13 @@ export const MainProducts: React.FC = () => {
     setAddLike(!addLike)
   }
   const [addBasketProduct, setAddBasketProduct] = useState(false)
-
+  const token = useAppSelector((state) => state.auth.token)
   const handleClickAddBasketProduct = (): void => {
+    if (token == null) {
+      return navigate('/sing/in')
+    }
     setAddBasketProduct(!addBasketProduct)
+    console.log('a')
   }
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat] '>
