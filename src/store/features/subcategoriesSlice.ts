@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 import { ISubCategory } from 'types/model'
+
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const getOneDataSubcategories = createAsyncThunk<
   ISubCategory[],
@@ -18,7 +18,6 @@ export const getOneDataSubcategories = createAsyncThunk<
     return rejectWithValue(error.message)
   }
 })
-
 
 interface SubcategoriesState {
   subcategories: ISubCategory[]

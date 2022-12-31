@@ -4,11 +4,13 @@ import { Route, Routes } from 'react-router-dom'
 
 import { Home } from '../pages/home/Home'
 
-import { Cards } from './goods/cards/CardsCategory'
 import { Goods } from './goods/Goods'
+import { Cards } from './goods/productСards/CardsCategory'
+import { CardsSubcategories } from './goods/productСards/CardsSubcategories'
 
 export const RouterFile: React.FC = () => {
   const category = useAppSelector((state) => state.category.category)
+  const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   
   return (
     <Routes>
@@ -22,13 +24,17 @@ export const RouterFile: React.FC = () => {
             element={<Goods categoryId={item._id} categoryName={item.name} />}
             key={item._id}
           >
-            {/* {nameRouter?.map((nameRout) => {
+            {subcategories?.map((nameRout) => {
               return (
-                <Route key={nameRout._id} path={nameRout._id} element={<CardsSubcategories />} />
+                <Route
+                  key={nameRout._id}
+                  path={nameRout._id}
+                  element={<CardsSubcategories id={nameRout._id} />}
+                />
               )
-            })} */}
+            })}
 
-            <Route index element={<Cards product={item._id} />} />
+            <Route index element={<Cards id={item._id} />} />
           </Route>
         )
       })}

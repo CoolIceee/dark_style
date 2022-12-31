@@ -10,20 +10,15 @@ interface categoryProps {
 }
 
 export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => {
-  // const { isFetching, data } = useGetDataCategoryQuery(categoryId)
-  // console.log(data)
-  const handleClickId = (id: string): void => {
-    console.log(id)
-  }
-  console.log(categoryId)
 
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getOneDataSubcategories(categoryId))
   }, [dispatch, categoryId])
+
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const isLoading = useAppSelector((state) => state.subcategory.isLoading)
-
+  
   return (
     <>
       <div className='flex'>
@@ -38,7 +33,6 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
                   return (
                     <NavLink
                       to={item._id}
-                      onClick={() => handleClickId(item._id)}
                       className='flex items-center w-full h-[35px] text-sm  pl-5 cursor-pointer hover:bg-blue-200 rounded-[3px]'
                       key={item._id}
                     >

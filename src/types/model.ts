@@ -5,7 +5,6 @@ export interface ICategory {
   __v: number
 }
 
-
 export interface typeProduct {
   _id: string
   name: string

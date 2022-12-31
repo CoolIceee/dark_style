@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html::-webkit-scrollbar-track {
-  position: relative;
+html::-webkit-scrollbar {
+  width: 0;
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 import { ICategory } from 'types/model'
+
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const getCategory = createAsyncThunk<ICategory[], undefined, { rejectValue: string }>(
   'category/getCategory',
