@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { ISubCategory } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 

@@ -12,7 +12,15 @@ export interface typeProduct {
   floorCategory: string
   __v: number
 }
-
+ export interface IUser {
+   like: any[]
+   _id: string
+   email: string
+   login: string
+   password: string
+   basket: any[]
+   __v: number
+ }
 export interface IProduct {
   _id: string
   name: string
@@ -26,6 +34,7 @@ export interface IProduct {
   discountPrice?: number
   quantity: number
   __v: number
+  people: string[]
 }
 
 export interface ISubCategory {
@@ -40,4 +49,11 @@ export interface ISubcategories {
   category: ISubCategory
   floorCategory: string
   __v: number
+}
+
+export interface IToken {
+  exp: number
+  iat: number
+  id: string
+  name: string
 }

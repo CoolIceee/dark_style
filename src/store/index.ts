@@ -4,12 +4,14 @@ import authSlice from './features/authSlice'
 import categorySlice from './features/categorySlice'
 import productSlice from './features/productSlice'
 import subcategoriesSlice from './features/subcategoriesSlice'
+import userSlice from './features/userSlice'
 export const store = configureStore({
   reducer: {
     category: categorySlice,
     subcategory: subcategoriesSlice,
     product: productSlice,
-    auth: authSlice
+    auth: authSlice,
+    user: userSlice
   }
 })
 
