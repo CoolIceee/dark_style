@@ -1,10 +1,13 @@
+import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
+import jwtDecode from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { IToken } from 'types/model'
 
 import addBasket from '../../../../assets/addBasket.png'
 import basketAdd from '../../../../assets/basketAdd.png'
-import like from    '../../../../assets/like.png'
+import like from '../../../../assets/like.png'
 import redLike from '../../../../assets/redLike.png'
 import { getOneCategoryProduct } from '../../../../store/features/productSlice'
 
@@ -18,26 +21,30 @@ export const Cards: React.FC<productProps> = ({ id }) => {
   }, [dispatch, id])
   const product = useAppSelector((state) => state.product.product)
   const isLoading = useAppSelector((state) => state.product.isLoading)
-   const [addLike, setAddLike] = useState(false)
-   const handleClickAddLikeProduct = (): void => {
-     setAddLike(!addLike)
-   }
-   const [addBasketProduct, setAddBasketProduct] = useState(false)
+  const [addLike, setAddLike] = useState(false)
+  const handleClickAddLikeProduct = (): void => {
+    setAddLike(!addLike)
+  }
+  const [addBasketProduct, setAddBasketProduct] = useState(false)
+  const token = useAppSelector((state) => state.auth.token)
 
-   const handleClickAddBasketProduct = (): void => {
-     setAddBasketProduct(!addBasketProduct)
-   }
+  const tokenDecode: IToken = jwtDecode(String(token))
+  const handleClickAddBasketProduct = (): void => {
+    setAddBasketProduct(!addBasketProduct)
+  }
   return (
     <>
-      <div className='mx-full w-auto mt-7 font-[Montserrat]'>
+      <div className='w-full mt-7 font-[Montserrat]'>
         <NavLink className='text-lg ml-5 cursor-pointer text-blue-600' to='/'>
           Главная страница
         </NavLink>
         <div className=' mx-auto flex w-auto  flex-wrap  '>
           {isLoading ? (
-            <div className='pl-5'>Загрузка...</div>
+            <GoodsLoading />
           ) : (
-            product?.map((item) => {
+              product?.map((item) => {
+              console.log(item.typeProduct.name)
+              
               return (
                 <div
                   className='w-[240px] h-auto ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
@@ -62,20 +69,25 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                     <div className='text-sm pr-5 pb-3 flex items-center'>
                       <span className='text-gray-500 pr-3'>Цена:</span>
                       {item.price}руб
-                      <div
-                        onClick={() => handleClickAddBasketProduct()}
-                        className={
-                          addBasketProduct
-                            ? 'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-                            : 'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-                        }
-                      >
-                        <img
-                          className={addBasketProduct ? 'w-[20px] h-[20px]' : 'w-[15px] h-[15px]'}
-                          src={addBasketProduct ? basketAdd : addBasket}
-                          alt='like'
-                        />
-                      </div>
+                      {item.people.join('') === tokenDecode.id ? (
+                        <div
+                          onClick={() => handleClickAddBasketProduct()}
+                          className={
+                            'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
+                          }
+                        >
+                          <img className={'w-[20px] h-[20px]'} src={basketAdd} alt='like' />
+                        </div>
+                      ) : (
+                        <div
+                          onClick={() => handleClickAddBasketProduct()}
+                          className={
+                            'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
+                          }
+                        >
+                          <img className={'w-[15px] h-[15px]'} src={addBasket} alt='like' />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

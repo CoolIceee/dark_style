@@ -41,7 +41,7 @@ export const registerUser = createAsyncThunk<any[], string, { rejectValue: strin
 )
 
 interface authState {
-  token: string | null
+  token: string | null | boolean
 }
 const initialState: authState = {
   token: localStorage.getItem('token')

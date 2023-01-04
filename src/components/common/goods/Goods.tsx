@@ -22,7 +22,7 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
   return (
     <>
       <div className='flex'>
-        <div className='w-[300px] h-full mt-10  rounded'>
+        <div className='w-[280px] h-full mt-10  rounded'>
           <div className='font-bold border-b-2 border-solid'>{categoryName}</div>
           <div className='mt-[10px]'>
             {isLoading ? (
@@ -32,7 +32,7 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
                 {subcategories?.map((item) => {
                   return (
                     <NavLink
-                      to={item._id}
+                      to={item.name}
                       className='flex items-center w-full h-[35px] text-sm  pl-5 cursor-pointer hover:bg-blue-200 rounded-[3px]'
                       key={item._id}
                     >

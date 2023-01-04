@@ -13,9 +13,9 @@ export const dataUser = createAsyncThunk<IUser[], undefined, { rejectValue: stri
         }
       }
       const response = await axios.get(`http://localhost:7777/authorization/my/data`, config)
-
+       
       const data = await response.data
-
+      
       return data
     } catch (error: any) {
       return rejectWithValue(error.message)
@@ -40,12 +40,12 @@ export const dataUser = createAsyncThunk<IUser[], undefined, { rejectValue: stri
 interface authState {
   userDate: IUser[]
   isLoading: boolean
-  error: string | null
+  error: string | null | undefined
 }
 const initialState: authState = {
   userDate: [],
   isLoading: false,
-  error: null
+  error: null 
 }
 const authSlice = createSlice({
   name: 'user',
@@ -66,7 +66,7 @@ const authSlice = createSlice({
       .addCase(dataUser.rejected, (state, action) => {
         state.userDate = []
         state.isLoading = true
-        state.error = null
+        state.error = action.payload
       })
   }
 })
