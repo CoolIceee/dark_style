@@ -4,19 +4,18 @@ import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getCategory } from 'store/features/categorySlice'
 import { dataUser } from 'store/features/userSlice'
-
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'
 import { CardsSubcategories } from '../common/goods/productСards/CardsSubcategories'
-import { Home } from '../pages/home/Home'
+import { HomePage } from '../pages/home/HomePage'
 
-import { Auth } from './auth/Auth'
+import { AuthPage } from '../pages/home/auth/AuthPage'
+import { BasketPage } from 'components/pages/home/basket/BasketPage'
 
 export const RouterFile: React.FC = () => {
   const token = useAppSelector((state) => state.auth.token)
-  const category = useAppSelector((state) => state.category.category)
+  const category = useAppSelector((state) => state.category.category)  
   const error = useAppSelector((state) => state.user.error)
-
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const dispatch = useAppDispatch()
   useEffect(() => {
@@ -28,10 +27,9 @@ export const RouterFile: React.FC = () => {
     }
     dispatch(getCategory())
   }, [dispatch])
-
   return (
     <Routes>
-      <Route path='/' element={<Home />}>
+      <Route path='/' element={<HomePage />}>
         <Route index element={<MainProducts />} />
         {category?.map((item) => {
           return (
@@ -54,7 +52,8 @@ export const RouterFile: React.FC = () => {
           )
         })}
       </Route>
-      <Route path='/sing/in' element={<Auth />} />
+      <Route path='/sing/in' element={<AuthPage />} />
+      <Route path='/basket' element={<BasketPage />} />
     </Routes>
   )
 }

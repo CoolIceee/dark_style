@@ -1,9 +1,7 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
-import jwtDecode from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { IToken } from 'types/model'
 
 import addBasket from '../../../../assets/addBasket.png'
 import basketAdd from '../../../../assets/basketAdd.png'
@@ -19,6 +17,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
   useEffect(() => {
     dispatch(getOneCategoryProduct(id))
   }, [dispatch, id])
+  const user = useAppSelector((state) => state.user.userDate)
   const product = useAppSelector((state) => state.product.product)
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
@@ -26,9 +25,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
     setAddLike(!addLike)
   }
   const [addBasketProduct, setAddBasketProduct] = useState(false)
-  const token = useAppSelector((state) => state.auth.token)
 
-  const tokenDecode: IToken = jwtDecode(String(token))
   const handleClickAddBasketProduct = (): void => {
     setAddBasketProduct(!addBasketProduct)
   }
@@ -42,9 +39,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
           {isLoading ? (
             <GoodsLoading />
           ) : (
-              product?.map((item) => {
-              console.log(item.typeProduct.name)
-              
+              product?.map((item) => {              
               return (
                 <div
                   className='w-[240px] h-auto ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
@@ -69,8 +64,10 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                     <div className='text-sm pr-5 pb-3 flex items-center'>
                       <span className='text-gray-500 pr-3'>Цена:</span>
                       {item.price}руб
-                      {item.people.join('') === tokenDecode.id ? (
+                      {user.map((idUser) => {
+                      return item.people.join('') === idUser._id ? (
                         <div
+                          key={item._id}
                           onClick={() => handleClickAddBasketProduct()}
                           className={
                             'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
@@ -80,6 +77,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                         </div>
                       ) : (
                         <div
+                          key={item._id}
                           onClick={() => handleClickAddBasketProduct()}
                           className={
                             'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
@@ -87,7 +85,8 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                         >
                           <img className={'w-[15px] h-[15px]'} src={addBasket} alt='like' />
                         </div>
-                      )}
+                      )
+                    })}
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
-import jwtDecode from 'jwt-decode'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getProduct } from 'store/features/productSlice'
@@ -9,7 +8,6 @@ import addBasket from '../../../assets/addBasket.png'
 import basketAdd from '../../../assets/basketAdd.png'
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
-import { IToken } from '../../../types/model'
 
 export const MainProducts: React.FC = () => {
   const navigate = useNavigate()
