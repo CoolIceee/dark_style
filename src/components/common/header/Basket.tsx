@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+
 import basketImg from '../../../assets/basket.png'
 
 export const Basket: React.FC = () => {

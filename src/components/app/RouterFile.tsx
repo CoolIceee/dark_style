@@ -1,16 +1,16 @@
 import { MainProducts } from 'components/common/mainProducts/MainProducts'
+import { BasketPage } from 'components/pages/home/basket/BasketPage'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getCategory } from 'store/features/categorySlice'
 import { dataUser } from 'store/features/userSlice'
+
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'
 import { CardsSubcategories } from '../common/goods/productСards/CardsSubcategories'
-import { HomePage } from '../pages/home/HomePage'
-
 import { AuthPage } from '../pages/home/auth/AuthPage'
-import { BasketPage } from 'components/pages/home/basket/BasketPage'
+import { HomePage } from '../pages/home/HomePage'
 
 export const RouterFile: React.FC = () => {
   const token = useAppSelector((state) => state.auth.token)

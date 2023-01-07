@@ -1,0 +1,167 @@
+{
+    "category": [
+    {  "_id": "1",
+    "name": "Мужчинам"
+    },
+    {  "_id": "2",
+    "name": "Женщинам"
+    },
+    {  "_id": "3",
+    "name": "Детям"
+    },
+    {  "_id": "4",
+    "name": "Одежда"
+    },
+    {  "_id": "5",
+    "name": "Sport"
+    },
+    {  "_id": "6",
+    "name": "Аксессуары"
+    },
+    {  "_id": "7",
+    "name": "Бренды"
+    }
+    ],
+    "subcategories": [
+        {  "_id": "1",
+            "name": "",
+            "genderСategories": "",
+            "category": "",
+            "floorCategory": ""
+        }
+    ],
+    "product": [
+        {
+            "_id": "1",
+            "name": "Lee",
+            "itemName": "Кофты и свитера Lee lee lee box sws canary green",
+            "people": [],
+            "gender": "Мужское",
+            "typeProduct": "",
+            "photo": ["https://intertop.kz/upload/resize_cache/iblock/db2/521_710_1/r6usrs142s38e00r8e2rqg3zm7b1r2qw.jpg", "https://intertop.kz/upload/resize_cache/iblock/8e8/521_710_1/337ru7yx4qgbpwz9dtqjdvmnp5tfolk8.jpg, https://intertop.kz/upload/resize_cache/iblock/0c8/521_710_1/id1vi24zn52j0yc8t1plfkmzw3osu2yr.jpg"],
+            "dimensions": ["S", "M"],
+            "description": "Мужской свитшот с круглым вырезом от бренда Leе в зеленом цвете. Он изготовлен из 100% органического хлопка. Приятный мягкий материал прекрасно дышит и не сковывает движения. Базовая модель свободного кроя с принтом на спине. Она отлично смотрится и придает образу очень стильный вид. Идеально подойдет для повседневной носки в прохладную погоду.",
+            "price": 3000,
+            "quantity": 21
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        },
+        {
+            "_id": "1",
+            "name": "",
+            "itemName": "",
+            "people": [],
+            "gender": "",
+            "typeProduct": "",
+            "photo": [],
+            "dimensions": [],
+            "description": "",
+            "price": 0,
+            "quantity": 0
+        }
+
+    ]
+
+}

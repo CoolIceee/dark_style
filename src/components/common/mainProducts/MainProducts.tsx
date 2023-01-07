@@ -17,7 +17,6 @@ export const MainProducts: React.FC = () => {
   }, [dispatch])
   const user = useAppSelector((state) => state.user.userDate)
   const product = useAppSelector((state) => state.product.product)
-  console.log()
 
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
@@ -41,7 +40,6 @@ export const MainProducts: React.FC = () => {
           <GoodsLoading />
         ) : (
           product?.map((item) => {
-
             return (
               <div
                 className='w-[240px] h-auto ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
