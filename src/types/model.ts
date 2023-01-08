@@ -35,6 +35,7 @@ export interface IProduct {
 export interface ISubCategory {
   _id: string
   name: string
+  subcategoryProduct: any[]
 }
 
 export interface ISubcategories {
@@ -49,4 +50,11 @@ export interface IToken {
   iat: number
   id: string
   name: string
+}
+
+export interface IProductCategory {
+  _id: string
+  name: string
+  subcategory: string
+  __v: number
 }

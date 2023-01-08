@@ -7,7 +7,7 @@ export const getCategory = createAsyncThunk<ICategory[], undefined, { rejectValu
   'category/getCategory',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/category`)
+      const response = await axios.get(`http://localhost:7777/category/category`)
 
       const data = await response.data
 

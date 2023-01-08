@@ -56,7 +56,7 @@ export const MainProducts: React.FC = () => {
                 </div>
                 <div className='pt-2 pl-[15px] bg-white'>
                   <div className='pb-1 text-sm'>{item.name}</div>
-                  <div className='text-xs text-gray-500 pb-1'>{item.typeProduct.name}</div>
+                  {/* <div className='text-xs text-gray-500 pb-1'>{item.typeProduct.name}</div> */}
                   <div className='text-sm pr-5 pb-3 flex items-center'>
                     <span className='text-gray-500 pr-3'>Цена:</span>
                     {item.price} руб
@@ -93,4 +93,3 @@ export const MainProducts: React.FC = () => {
     </div>
   )
 }
-//

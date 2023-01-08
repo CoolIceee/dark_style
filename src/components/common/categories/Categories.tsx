@@ -42,6 +42,8 @@ export const Categories: React.FC = () => {
               )
             })
           )}
+          <li>Одежда</li>
+          <li>Аксуссуары</li>
         </ul>
       </div>
     </>

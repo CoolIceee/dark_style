@@ -31,8 +31,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.{ts,tsx,css}\"",
     "lint": "eslint ./src --ext .js,.tsx,.ts",
-    "lint:fix": "eslint src/**/*.{tsx,ts} --fix",
-    "server": "json-server -w server/db.json -p 7777"
+    "lint:fix": "eslint src/**/*.{tsx,ts} --fix"
   },
   "eslintConfig": {
     "extends": [

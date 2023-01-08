@@ -31,15 +31,15 @@ export const Cards: React.FC<productProps> = ({ id }) => {
   }
   return (
     <>
-      <div className='w-full mt-7 font-[Montserrat]'>
+      <div className='w-4/5 mt-7 font-[Montserrat]'>
         <NavLink className='text-lg ml-5 cursor-pointer text-blue-600' to='/'>
           Главная страница
         </NavLink>
-        <div className=' mx-auto flex w-auto  flex-wrap  '>
+        <div className='mx-auto flex w-auto  flex-wrap'>
           {isLoading ? (
             <GoodsLoading />
           ) : (
-              product?.map((item) => {              
+            product?.map((item) => {
               return (
                 <div
                   className='w-[240px] h-auto ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
@@ -65,28 +65,28 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                       <span className='text-gray-500 pr-3'>Цена:</span>
                       {item.price}руб
                       {user.map((idUser) => {
-                      return item.people.join('') === idUser._id ? (
-                        <div
-                          key={item._id}
-                          onClick={() => handleClickAddBasketProduct()}
-                          className={
-                            'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-                          }
-                        >
-                          <img className={'w-[20px] h-[20px]'} src={basketAdd} alt='like' />
-                        </div>
-                      ) : (
-                        <div
-                          key={item._id}
-                          onClick={() => handleClickAddBasketProduct()}
-                          className={
-                            'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-                          }
-                        >
-                          <img className={'w-[15px] h-[15px]'} src={addBasket} alt='like' />
-                        </div>
-                      )
-                    })}
+                        return item.people.join('') === idUser._id ? (
+                          <div
+                            key={item._id}
+                            onClick={() => handleClickAddBasketProduct()}
+                            className={
+                              'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
+                            }
+                          >
+                            <img className={'w-[20px] h-[20px]'} src={basketAdd} alt='like' />
+                          </div>
+                        ) : (
+                          <div
+                            key={item._id}
+                            onClick={() => handleClickAddBasketProduct()}
+                            className={
+                              'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
+                            }
+                          >
+                            <img className={'w-[15px] h-[15px]'} src={addBasket} alt='like' />
+                          </div>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

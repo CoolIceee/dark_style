@@ -6,7 +6,7 @@ export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue:
   'category/getProduct',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/product`)
+      const response = await axios.get(`http://localhost:7777/product/get`)
 
       const data = await response.data
 

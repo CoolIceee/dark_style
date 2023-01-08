@@ -6,6 +6,7 @@ interface cardsProps {
 }
 export const CardsSubcategories: React.FC<cardsProps> = ({ id }) => {
   const dispatch = useAppDispatch()
+
   useEffect(() => {
     dispatch(getOneSubcategoryProduct(id))
   }, [dispatch, id])
