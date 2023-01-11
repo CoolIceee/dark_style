@@ -16,7 +16,7 @@ export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue:
     }
   }
 )
-export const getOneCategoryProduct = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
+export const getOneGenderProduct = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
   'category/getOneCategoryProduct',
   async (id, { rejectWithValue }) => {
     try {
@@ -76,16 +76,16 @@ const productSlice = createSlice({
         state.error = action.payload
       })
     builder
-      .addCase(getOneCategoryProduct.pending, (state, action) => {
+      .addCase(getOneGenderProduct.pending, (state, action) => {
         state.product = []
         state.isLoading = true
         state.error = null
       })
-      .addCase(getOneCategoryProduct.fulfilled, (state, action) => {
+      .addCase(getOneGenderProduct.fulfilled, (state, action) => {
         state.product = action.payload
         state.isLoading = false
       })
-      .addCase(getOneCategoryProduct.rejected, (state, action) => {
+      .addCase(getOneGenderProduct.rejected, (state, action) => {
         state.error = action.payload
       })
     builder

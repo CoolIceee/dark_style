@@ -19,12 +19,12 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
 
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const isLoading = useAppSelector((state) => state.subcategory.isLoading)
-  const productCategory = useAppSelector((state) => state.pCategory.productCategory)
-
+ 
   const [dropdown, setDropdown] = useState(false)
-
+  
   const hadleDropdown = (id: string): void => {
     setDropdown(!dropdown)
+    console.log(id)
     dispatch(getProductCategory(id))
   }
 
@@ -56,7 +56,7 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
                     {item.subcategoryProduct?.map((turnkey) => {
                       return (
                         <div
-                          className='cursor-pointer flex items-center px-3 text-xs w-[200px] m-auto py-2 hover:bg-gray-100 rounded-[3px]'
+                          className='cursor-pointer flex items-center px-3 text-xs w-[90%] ml-auto py-2 hover:bg-gray-100 rounded-[3px]'
                           key={turnkey._id}
                         >
                           <div className='bg-blue-600 w-2 h-2 rounded-[100%] mr-2'></div>

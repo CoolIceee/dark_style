@@ -10,7 +10,7 @@ import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
 
 export const MainProducts: React.FC = () => {
-  const navigate = useNavigate()
+  
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getProduct())

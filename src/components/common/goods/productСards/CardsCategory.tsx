@@ -7,7 +7,7 @@ import addBasket from '../../../../assets/addBasket.png'
 import basketAdd from '../../../../assets/basketAdd.png'
 import like from '../../../../assets/like.png'
 import redLike from '../../../../assets/redLike.png'
-import { getOneCategoryProduct } from '../../../../store/features/productSlice'
+import { getOneGenderProduct } from '../../../../store/features/productSlice'
 
 interface productProps {
   id: string
@@ -15,7 +15,7 @@ interface productProps {
 export const Cards: React.FC<productProps> = ({ id }) => {
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(getOneCategoryProduct(id))
+    dispatch(getOneGenderProduct(id))
   }, [dispatch, id])
   const user = useAppSelector((state) => state.user.userDate)
   const product = useAppSelector((state) => state.product.product)

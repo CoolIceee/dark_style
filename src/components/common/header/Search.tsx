@@ -11,13 +11,13 @@ export const Search: React.FC = () => {
 
   return (
     <>
-      <form className=' relative flex self-center font-[Montserrat]'>
+      <form className='relative flex self-center font-[Montserrat]'>
         <button className='w-10 h-auto flex justify-center items-center bg-blue-600 rounded-l-lg'>
           <img src={search} alt='search' className='w-5 h-auto ' />
         </button>
         <input
           onClick={handleClickDropdown}
-          className='w-[25 0px] h-8 px-4 text-sky-900 focus:outline-0 text-base border-solid border-2 rounded-r-lg border-blue-600'
+          className='w-[25 0px] h-8 px-4 text-sky-900 focus:outline-0 text-[13px] border-solid border-2 rounded-r-lg border-blue-600'
           placeholder='Поиск'
         />
         {dropdown && (

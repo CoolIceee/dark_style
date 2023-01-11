@@ -13,18 +13,19 @@ import { AuthPage } from '../pages/home/auth/AuthPage'
 import { HomePage } from '../pages/home/HomePage'
 
 export const RouterFile: React.FC = () => {
-  const token = useAppSelector((state) => state.auth.token)
-  const category = useAppSelector((state) => state.category.category)  
-  const error = useAppSelector((state) => state.user.error)
+  // const token = useAppSelector((state) => state.auth.token)
+  const category = useAppSelector((state) => state.category.category)
+  // const error = useAppSelector((state) => state.user.error)
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const dispatch = useAppDispatch()
+  
   useEffect(() => {
-    if (error != null) {
-      localStorage.removeItem('token')
-    }
-    if (token != null) {
-      dispatch(dataUser())
-    }
+    // if (error != null) {
+    //   localStorage.removeItem('token')
+    // }
+    // if (token != null) {
+    //   dispatch(dataUser())
+    // }
     dispatch(getCategory())
   }, [dispatch])
   return (
