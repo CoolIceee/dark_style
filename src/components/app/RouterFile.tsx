@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getCategory } from 'store/features/categorySlice'
-import { dataUser } from 'store/features/userSlice'
 
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'
@@ -13,19 +12,11 @@ import { AuthPage } from '../pages/home/auth/AuthPage'
 import { HomePage } from '../pages/home/HomePage'
 
 export const RouterFile: React.FC = () => {
-  // const token = useAppSelector((state) => state.auth.token)
   const category = useAppSelector((state) => state.category.category)
-  // const error = useAppSelector((state) => state.user.error)
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const dispatch = useAppDispatch()
   
   useEffect(() => {
-    // if (error != null) {
-    //   localStorage.removeItem('token')
-    // }
-    // if (token != null) {
-    //   dispatch(dataUser())
-    // }
     dispatch(getCategory())
   }, [dispatch])
   return (

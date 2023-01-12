@@ -1,10 +1,10 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-
-import { getOneDataSubcategories } from '../../../store/features/subcategoriesSlice'
-import arrow from '../../../assets/arrow.png'
 import { getProductCategory } from 'store/features/productCategorySlice'
+
+import arrow from '../../../assets/arrow.png'
+import { getOneDataSubcategories } from '../../../store/features/subcategoriesSlice'
 
 interface categoryProps {
   categoryId: string
@@ -19,12 +19,10 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
 
   const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const isLoading = useAppSelector((state) => state.subcategory.isLoading)
- 
   const [dropdown, setDropdown] = useState(false)
   
   const hadleDropdown = (id: string): void => {
     setDropdown(!dropdown)
-    console.log(id)
     dispatch(getProductCategory(id))
   }
 

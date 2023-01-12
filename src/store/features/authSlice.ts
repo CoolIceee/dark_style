@@ -25,7 +25,7 @@ export const loginUser = createAsyncThunk<any, UserAttributes, { rejectValue: st
     }
   }
 )
-export const registerUser = createAsyncThunk<any[], string, { rejectValue: string }>(
+export const registerUser = createAsyncThunk<any, string, { rejectValue: string }>(
   'subcategories/postRegisterUser',
   async (id, { rejectWithValue }) => {
     try {

@@ -10,14 +10,16 @@ export interface typeProduct {
   category: string
   floorCategory: string
 }
- export interface IUser {
-   like: any[]
-   _id: string
-   email: string
-   login: string
-   password: string
-   basket: any[]
- }
+
+export interface IUser {
+  like: any[]
+  _id: string
+  email: string
+  login: string
+  password: string
+  basket: any[]
+}
+
 export interface IProduct {
   _id: string
   name: string

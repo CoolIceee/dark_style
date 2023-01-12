@@ -1,14 +1,12 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { getProduct } from 'store/features/productSlice'
 
 import addBasket from '../../../assets/addBasket.png'
 import basketAdd from '../../../assets/basketAdd.png'
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
-
 export const MainProducts: React.FC = () => {
   
   const dispatch = useAppDispatch()
@@ -27,9 +25,6 @@ export const MainProducts: React.FC = () => {
   const [addBasketProduct, setAddBasketProduct] = useState(false)
 
   const handleClickAddBasketProduct = (): void => {
-    // if (token == null) {
-    //   return navigate('/sing/in')
-    // }
     setAddBasketProduct(!addBasketProduct)
   }
   return (
@@ -56,7 +51,6 @@ export const MainProducts: React.FC = () => {
                 </div>
                 <div className='pt-2 pl-[15px] bg-white'>
                   <div className='pb-1 text-sm'>{item.name}</div>
-                  {/* <div className='text-xs text-gray-500 pb-1'>{item.typeProduct.name}</div> */}
                   <div className='text-sm pr-5 pb-3 flex items-center'>
                     <span className='text-gray-500 pr-3'>Цена:</span>
                     {item.price} руб

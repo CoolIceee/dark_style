@@ -22,20 +22,6 @@ export const dataUser = createAsyncThunk<IUser[], undefined, { rejectValue: stri
     }
   }
 )
-// export const registerUser = createAsyncThunk<any[], string, { rejectValue: string }>(
-//   'subcategories/postRegisterUser',
-//   async (id, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
-
-//       const data = await response.data
-
-//       return data
-//     } catch (error: any) {
-//       return rejectWithValue(error.message)
-//     }
-//   }
-// )
 
 interface authState {
   userDate: IUser[]

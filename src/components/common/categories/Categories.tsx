@@ -36,14 +36,15 @@ export const Categories: React.FC = () => {
                     }
                     to={item._id}
                   >
-                    {item.name}
+                    {item.name.toUpperCase()}
                   </NavLink>
                 </li>
               )
             })
           )}
-          <li>Одежда</li>
-          <li>Аксуссуары</li>
+          <li>{`Одежда`.toUpperCase()}</li>
+          <li>{`Аксуссуары`.toUpperCase()}</li>
+          <li>{`Бренды`.toUpperCase()}</li>
         </ul>
       </div>
     </>
