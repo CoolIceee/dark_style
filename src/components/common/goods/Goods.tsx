@@ -41,7 +41,7 @@ export const Goods: React.FC<categoryProps> = ({ categoryId, categoryName }) => 
                 return (
                   <div key={item._id}>
                     <NavLink
-                      onClick={() => hadleDropdown(item._id)}
+                      onClick={() => { hadleDropdown(item._id); }}
                       to={item.name}
                       className='flex w-auto h-[35px] text-sm  pl-5 cursor-pointer  hover:bg-gray-100 rounded-[3px] items-center'
                       key={item._id}

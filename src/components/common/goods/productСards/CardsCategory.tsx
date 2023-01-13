@@ -47,7 +47,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                 >
                   <div className='flex justify-center items-center w-full h-[310px] overflow-hidden ease-in relative'>
                     <div
-                      onClick={() => handleClickAddLikeProduct()}
+                      onClick={() => { handleClickAddLikeProduct(); }}
                       className='w-[40px] h-[40px] absolute bg-white top-5 left-5 flex justify-center items-center rounded-[5px]'
                     >
                       <img
@@ -68,7 +68,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                         return item.people.join('') === idUser._id ? (
                           <div
                             key={item._id}
-                            onClick={() => handleClickAddBasketProduct()}
+                            onClick={() => { handleClickAddBasketProduct(); }}
                             className={
                               'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
                             }
@@ -78,7 +78,7 @@ export const Cards: React.FC<productProps> = ({ id }) => {
                         ) : (
                           <div
                             key={item._id}
-                            onClick={() => handleClickAddBasketProduct()}
+                            onClick={() => { handleClickAddBasketProduct(); }}
                             className={
                               'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
                             }
