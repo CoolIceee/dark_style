@@ -2,23 +2,20 @@ import axios from 'axios'
 import { ISubCategory } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+export const getACategory = createAsyncThunk<ISubCategory[], string, { rejectValue: string }>(
+  'subcategories/getACategory',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
 
-export const getOneDataSubcategories = createAsyncThunk<
-  ISubCategory[],
-  string,
-  { rejectValue: string }
->('subcategories/getOneDateSubcategories', async (id, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
+      const data = await response.data
 
-    const data = await response.data
-
-    return data
-  } catch (error: any) {
-    return rejectWithValue(error.message)
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
   }
-})
-
+)
 interface SubcategoriesState {
   subcategories: ISubCategory[]
   isLoading: boolean
@@ -29,25 +26,23 @@ const initialState: SubcategoriesState = {
   isLoading: false,
   error: null
 }
-
 const subcategorySlice = createSlice({
   name: 'subcategory',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getOneDataSubcategories.pending, (state, action) => {
+      .addCase(getACategory.pending, (state, action) => {
         state.isLoading = true
         state.error = null
       })
-      .addCase(getOneDataSubcategories.fulfilled, (state, action) => {
+      .addCase(getACategory.fulfilled, (state, action) => {
         state.subcategories = action.payload
         state.isLoading = false
       })
-      .addCase(getOneDataSubcategories.rejected, (state, action) => {
+      .addCase(getACategory.rejected, (state, action) => {
         state.error = action.payload
       })
   }
 })
-
 export default subcategorySlice.reducer

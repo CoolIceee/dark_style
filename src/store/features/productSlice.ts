@@ -3,13 +3,11 @@ import { IProduct } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue: string }>(
-  'category/getProduct',
+  'product/getProduct',
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(`http://localhost:7777/product/get`)
-
       const data = await response.data
-
       return data
     } catch (error: any) {
       return rejectWithValue(error.message)
@@ -17,46 +15,73 @@ export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue:
   }
 )
 export const getOneGenderProduct = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
-  'category/getOneCategoryProduct',
+  'product/getOneGenderProduct',
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios.get(`http://localhost:7777/product/get/${id}`)
       const data = await response.data
-
       return data
     } catch (error: any) {
       return rejectWithValue(error.message)
     }
   }
 )
-export const getOneSubcategoryProduct = createAsyncThunk<
-  IProduct[],
-  string,
-  { rejectValue: string }
->('category/getOneSubcategoryProduct', async (id, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`http://localhost:7777/product/get/subcategory/product/${id}`)
-    const data = await response.data
-
-    return data
-  } catch (error: any) {
-    return rejectWithValue(error.message)
+export const getProductByCategory = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
+  'product/getProductByCategory',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:7777/product/get/subcategory/product/${id}`
+      )
+      const data = await response.data
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
   }
-})
+)
+export const getSubcategoryProduct = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
+  'product/getSubcategoryProduct',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:7777/product/get/subcategory/category/product/${id}`
+      )
+      const data = await response.data
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 
+export const addShoppingCart = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
+  'product/addShoppingCart',
+  async (id, { rejectWithValue }) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + String(localStorage.getItem('token'))
+        }
+      }
+      const response = await axios.post(`http://localhost:7777/product/add/user/${id}`, {}, config)
+      const data = await response.data
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 interface CategoryState {
   product: IProduct[]
-  oneSubcategoryProduct: IProduct[]
   isLoading: boolean
   error: string | null | undefined
 }
 const initialState: CategoryState = {
   product: [],
-  oneSubcategoryProduct: [],
   isLoading: false,
   error: null
 }
-
 const productSlice = createSlice({
   name: 'product',
   initialState,
@@ -89,19 +114,31 @@ const productSlice = createSlice({
         state.error = action.payload
       })
     builder
-      .addCase(getOneSubcategoryProduct.pending, (state, action) => {
+      .addCase(getProductByCategory.pending, (state, action) => {
         state.product = []
         state.isLoading = true
         state.error = null
       })
-      .addCase(getOneSubcategoryProduct.fulfilled, (state, action) => {
+      .addCase(getProductByCategory.fulfilled, (state, action) => {
         state.product = action.payload
         state.isLoading = false
       })
-      .addCase(getOneSubcategoryProduct.rejected, (state, action) => {
+      .addCase(getProductByCategory.rejected, (state, action) => {
+        state.error = action.payload
+      })
+    builder
+      .addCase(getSubcategoryProduct.pending, (state, action) => {
+        state.product = []
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(getSubcategoryProduct.fulfilled, (state, action) => {
+        state.product = action.payload
+        state.isLoading = false
+      })
+      .addCase(getSubcategoryProduct.rejected, (state, action) => {
         state.error = action.payload
       })
   }
 })
-
 export default productSlice.reducer

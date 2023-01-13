@@ -7,15 +7,13 @@ import { getCategory } from 'store/features/categorySlice'
 
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'
-import { CardsSubcategories } from '../common/goods/productСards/CardsSubcategories'
 import { AuthPage } from '../pages/home/auth/AuthPage'
 import { HomePage } from '../pages/home/HomePage'
 
 export const RouterFile: React.FC = () => {
   const category = useAppSelector((state) => state.category.category)
-  const subcategories = useAppSelector((state) => state.subcategory.subcategories)
   const dispatch = useAppDispatch()
-  
+
   useEffect(() => {
     dispatch(getCategory())
   }, [dispatch])
@@ -30,15 +28,6 @@ export const RouterFile: React.FC = () => {
               element={<Goods categoryId={item._id} categoryName={item.name} />}
               key={item._id}
             >
-              {subcategories?.map((nameRout) => {
-                return (
-                  <Route
-                    key={nameRout._id}
-                    path={nameRout.name}
-                    element={<CardsSubcategories id={nameRout._id} />}
-                  />
-                )
-              })}
               <Route index element={<Cards id={item._id} />} />
             </Route>
           )

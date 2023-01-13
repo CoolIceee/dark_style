@@ -2,9 +2,8 @@ import axios from 'axios'
 import { IUser } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 export const dataUser = createAsyncThunk<IUser[], undefined, { rejectValue: string }>(
-  'subcategories/dataUser',
+  'user/dataUser',
   async (_, { rejectWithValue }) => {
     try {
       const config = {
@@ -13,16 +12,13 @@ export const dataUser = createAsyncThunk<IUser[], undefined, { rejectValue: stri
         }
       }
       const response = await axios.get(`http://localhost:7777/authorization/my/data`, config)
-       
       const data = await response.data
-      
       return data
     } catch (error: any) {
       return rejectWithValue(error.message)
     }
   }
 )
-
 interface authState {
   userDate: IUser[]
   isLoading: boolean
@@ -56,5 +52,4 @@ const authSlice = createSlice({
       })
   }
 })
-
 export default authSlice.reducer

@@ -25,26 +25,28 @@ export const Categories: React.FC = () => {
               <span className='w-[100px] bg-gray-200  h-[21px] rounded-[5px]'></span>
             </>
           ) : (
-            category?.map((item) => {
-              return (
-                <li className='text-[14px]' key={item._id}>
-                  <NavLink
-                    className={
-                      isPath.pathname === '/' + item._id
-                        ? 'border-b-[3px] border-solid border-blue-600'
-                        : ''
-                    }
-                    to={item._id}
-                  >
-                    {item.name.toUpperCase()}
-                  </NavLink>
-                </li>
-              )
-            })
+            <>
+              {category?.map((item) => {
+                return (
+                  <li className='text-[14px]' key={item._id}>
+                    <NavLink
+                      className={
+                        isPath.pathname === '/' + item._id
+                          ? 'border-b-[3px] border-solid border-blue-600'
+                          : ''
+                      }
+                      to={item._id}
+                    >
+                      {item.name.toUpperCase()}
+                    </NavLink>
+                  </li>
+                )
+              })}
+              <li>{`Одежда`.toUpperCase()}</li>
+              <li>{`Аксуссуары`.toUpperCase()}</li>
+              <li>{`Бренды`.toUpperCase()}</li>
+            </>
           )}
-          <li>{`Одежда`.toUpperCase()}</li>
-          <li>{`Аксуссуары`.toUpperCase()}</li>
-          <li>{`Бренды`.toUpperCase()}</li>
         </ul>
       </div>
     </>

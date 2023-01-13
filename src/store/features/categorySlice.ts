@@ -2,15 +2,12 @@ import axios from 'axios'
 import { ICategory } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 export const getCategory = createAsyncThunk<ICategory[], undefined, { rejectValue: string }>(
   'category/getCategory',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/category/category`)
-
+      const response = await axios.get(`http://localhost:7777/category`)
       const data = await response.data
-
       return data
     } catch (error: any) {
       return rejectWithValue(error.message)
@@ -21,7 +18,7 @@ export const getOneCategory = createAsyncThunk<ICategory[], string, { rejectValu
   'category/getOneCategory',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/category/category/${id}`)
+      const response = await axios.get(`http://localhost:7777/category/${id}`)
 
       const data = await response.data
 
@@ -31,7 +28,6 @@ export const getOneCategory = createAsyncThunk<ICategory[], string, { rejectValu
     }
   }
 )
-
 interface CategoryState {
   category: ICategory[]
   oneCategory: ICategory[]
@@ -44,7 +40,6 @@ const initialState: CategoryState = {
   isLoading: false,
   error: null
 }
-
 const categorySlice = createSlice({
   name: 'category',
   initialState,
@@ -76,5 +71,4 @@ const categorySlice = createSlice({
       })
   }
 })
-
 export default categorySlice.reducer

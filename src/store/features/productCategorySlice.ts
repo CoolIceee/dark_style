@@ -2,7 +2,6 @@ import axios from 'axios'
 import { IProductCategory } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
 export const getProductCategory = createAsyncThunk<
   IProductCategory[],
   string,
@@ -10,15 +9,12 @@ export const getProductCategory = createAsyncThunk<
 >('productCategory/getProductCategory', async (id, { rejectWithValue }) => {
   try {
     const response = await axios.get(`http://localhost:7777/product/categories/cat/${id}`)
-
     const data = await response.data
-
     return data
   } catch (error: any) {
     return rejectWithValue(error.message)
   }
 })
-
 interface CategoryState {
   productCategory: IProductCategory[]
   isLoading: boolean
@@ -29,7 +25,6 @@ const initialState: CategoryState = {
   isLoading: false,
   error: null
 }
-
 const productCategorySlice = createSlice({
   name: 'productCategory',
   initialState,
@@ -49,5 +44,4 @@ const productCategorySlice = createSlice({
       })
   }
 })
-
 export default productCategorySlice.reducer
