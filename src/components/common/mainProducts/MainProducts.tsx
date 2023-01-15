@@ -1,13 +1,12 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
-import { addShoppingCart, getProduct } from 'store/features/productSlice'
+import { getProduct } from 'store/features/productSlice'
 import { dataUser } from 'store/features/userSlice'
 
-import addBasket from '../../../assets/addBasket.png'
-import basketAdd from '../../../assets/basketAdd.png'
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
+
 import { ShoppingCartButton } from './ShoppingCartButton'
 
 export const MainProducts: React.FC = () => {
@@ -16,18 +15,8 @@ export const MainProducts: React.FC = () => {
   const handleClickAddLikeProduct = (): void => {
     setAddLike(!addLike)
   }
-  const handleClickAddBasketProduct = (id: string): void => {
-    dispatch(addShoppingCart(id))
-    dispatch(dataUser())
-  }
 
   const product = useAppSelector((state) => state.product.product)
-  const user = useAppSelector((state) => state.user.userDate)
-
-  // const a = product.map((item) => {
-  //   return
-  //   })
-  // })
 
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
@@ -35,6 +24,7 @@ export const MainProducts: React.FC = () => {
   useEffect(() => {
     dispatch(getProduct())
     dispatch(dataUser())
+
   }, [dispatch])
 
   return (
@@ -45,7 +35,6 @@ export const MainProducts: React.FC = () => {
           <GoodsLoading />
         ) : (
           product?.map((item) => {
-            
             return (
               <div
                 className='w-[240px] h-auto ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
@@ -67,8 +56,8 @@ export const MainProducts: React.FC = () => {
                   <div className='text-sm pr-5 pb-3 flex items-center'>
                     <span className='text-gray-500 pr-3'>Цена:</span>
                     {item.price} руб
-                    {}
-                   <ShoppingCartButton data={item}/>
+                    
+                    <ShoppingCartButton itemProduct={item} />
                   </div>
                 </div>
               </div>
@@ -79,73 +68,3 @@ export const MainProducts: React.FC = () => {
     </div>
   )
 }
-
-// import { useAppDispatch, useAppSelector } from 'hooks/hooks'
-// import { useEffect } from 'react'
-// import { addShoppingCart } from 'store/features/productSlice'
-// import { dataUser } from 'store/features/userSlice'
-
-// export const ShoppingCartButton: React.FC = () => {
-//   const dispatch = useAppDispatch()
-//   const product = useAppSelector((state) => state.product.product)
-//   const isAddBasLoading = useAppSelector((state) => state.product.isAddBasLoading)
-
-//   const user = useAppSelector((state) => state.user.userDate)
-//   const IDPeople = user.map((idUser) => {
-//     return idUser._id
-//   })
-//     console.log(IDPeople.join(''))
-
-//   useEffect(() => {
-
-//   }, [dispatch])
-//   return (
-//     <>
-//       {isAddBasLoading ? (
-//         <div>loading</div>
-//       ) : (
-//         product.map((item) => {
-
-//         })
-//       )}
-//     </>
-//   )
-// }
-
-// user?.map((item) => {
-//           const IDPeople = product.map((idUser) => {
-//            return item.basket.map((people) => {
-//               return people === idUser._id
-//             })
-//           })
-//           console.log(IDPeople)
-
-//         })
-
-
-
-// return !itemA ? (
-//   <div
-//     key={item._id}
-//     onClick={() => {
-//       handleClickAddBasketProduct(item._id)
-//     }}
-//     className={
-//       'w-[30px] h-[30px] bg-blue-600 rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-//     }
-//   >
-//     <img className={'w-[20px] h-[20px]'} src={basketAdd} alt='like' />
-//   </div>
-// ) : (
-//   <div
-//     key={item._id}
-//     onClick={() => {
-//       handleClickAddBasketProduct(item._id)
-//     }}
-//     className={
-//       'w-[30px] h-[30px] bg-white rounded-[5px] border-[1px] border-gray-200 ml-auto flex justify-center items-center'
-//     }
-//   >
-//     <img className={'w-[15px] h-[15px]'} src={addBasket} alt='like' />
-//   </div>
-// )

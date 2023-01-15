@@ -72,6 +72,7 @@ export const addShoppingCart = createAsyncThunk<IProduct[], string, { rejectValu
     }
   }
 )
+
 interface CategoryState {
   product: IProduct[]
   isLoading: boolean
@@ -83,7 +84,6 @@ const initialState: CategoryState = {
   isLoading: false,
   isAddBasLoading: false,
   error: null
-
 }
 const productSlice = createSlice({
   name: 'product',
@@ -142,17 +142,19 @@ const productSlice = createSlice({
       .addCase(getSubcategoryProduct.rejected, (state, action) => {
         state.error = action.payload
       })
-      builder
-        .addCase(addShoppingCart.pending, (state, action) => {
-          state.isAddBasLoading = true
-          state.error = null
-        })
-        .addCase(addShoppingCart.fulfilled, (state, action) => { 
-          state.isAddBasLoading = false
-        })
-        .addCase(addShoppingCart.rejected, (state, action) => {
-          state.error = action.payload
-        })
+    builder
+      .addCase(addShoppingCart.pending, (state, action) => {
+        state.isAddBasLoading = true
+        state.error = null
+      })
+      .addCase(addShoppingCart.fulfilled, (state, action) => {
+        state.isAddBasLoading = false
+      })
+      .addCase(addShoppingCart.rejected, (state, action) => {
+        state.isAddBasLoading = false
+        state.error = action.payload
+
+      })
   }
 })
 export default productSlice.reducer
