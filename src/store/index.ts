@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import authSlice from './features/authSlice'
+import basketSlice from './features/basketAndLikeSlice'
 import categorySlice from './features/categorySlice'
 import productCategorySlice from './features/productCategorySlice'
 import productSlice from './features/productSlice'
@@ -13,7 +14,8 @@ export const store = configureStore({
     product: productSlice,
     auth: authSlice,
     user: userSlice,
-    pCategory: productCategorySlice
+    pCategory: productCategorySlice,
+    basket: basketSlice
   }
 })
 

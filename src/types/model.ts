@@ -2,13 +2,14 @@
 export interface ICategory {
   _id: string
   name: string
+  __v: number
 }
 
-export interface typeProduct {
+export interface IBasket {
   _id: string
-  name: string
-  category: string
-  floorCategory: string
+  user: string
+  product: string
+  __v: number
 }
 
 export interface IUser {
@@ -18,8 +19,15 @@ export interface IUser {
   login: string
   password: string
   basket: any[]
+  __v: number
 }
-
+export interface typeProduct {
+  _id: string
+  name: string
+  category: string
+  floorCategory: string
+  __v: number
+}
 export interface IProduct {
   _id: string
   name: string
@@ -32,12 +40,14 @@ export interface IProduct {
   description: string
   price: number
   quantity: number
+  __v: number
 }
 
 export interface ISubCategory {
   _id: string
   name: string
   subcategoryProduct: any[]
+  __v: number
 }
 
 export interface ISubcategories {
@@ -45,6 +55,7 @@ export interface ISubcategories {
   name: string
   category: ISubCategory
   floorCategory: string
+  __v: number
 }
 
 export interface IToken {
@@ -52,6 +63,7 @@ export interface IToken {
   iat: number
   id: string
   name: string
+  __v: number
 }
 
 export interface IProductCategory {

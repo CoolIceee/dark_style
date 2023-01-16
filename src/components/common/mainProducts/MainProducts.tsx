@@ -1,6 +1,7 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
+import { getBasket } from 'store/features/basketAndLikeSlice'
 import { getProduct } from 'store/features/productSlice'
 import { dataUser } from 'store/features/userSlice'
 
@@ -24,8 +25,10 @@ export const MainProducts: React.FC = () => {
   useEffect(() => {
     dispatch(getProduct())
     dispatch(dataUser())
+    dispatch(getBasket())
 
   }, [dispatch])
+  
 
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat] '>
@@ -53,10 +56,9 @@ export const MainProducts: React.FC = () => {
                 </div>
                 <div className='pt-2 pl-[15px] bg-white'>
                   <div className='pb-1 text-sm'>{item.name}</div>
-                  <div className='text-sm pr-5 pb-3 flex items-center'>
+                  <div className='text-sm pr-5 pb-3 flex items-center relative'>
                     <span className='text-gray-500 pr-3'>Цена:</span>
                     {item.price} руб
-                    
                     <ShoppingCartButton itemProduct={item} />
                   </div>
                 </div>
