@@ -8,8 +8,6 @@ import { dataUser } from 'store/features/userSlice'
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
 
-import { ShoppingCartButton } from './ShoppingCartButton'
-
 export const MainProducts: React.FC = () => {
   const dispatch = useAppDispatch()
 
@@ -18,7 +16,7 @@ export const MainProducts: React.FC = () => {
   }
 
   const product = useAppSelector((state) => state.product.product)
-
+const basket = useAppSelector((state) => state.basket.basket)
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
 
@@ -26,9 +24,7 @@ export const MainProducts: React.FC = () => {
     dispatch(getProduct())
     dispatch(dataUser())
     dispatch(getBasket())
-
   }, [dispatch])
-  
 
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat] '>
@@ -59,7 +55,10 @@ export const MainProducts: React.FC = () => {
                   <div className='text-sm pr-5 pb-3 flex items-center relative'>
                     <span className='text-gray-500 pr-3'>Цена:</span>
                     {item.price} руб
-                    <ShoppingCartButton itemProduct={item} />
+                    {item.people.map((filterItem) => {
+                      return filterItem === '63c29b265cbbe13ef244dbc2' && 1
+                    })}
+                    {item.people.length === 0 && 2}
                   </div>
                 </div>
               </div>

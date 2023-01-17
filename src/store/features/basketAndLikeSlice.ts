@@ -57,6 +57,25 @@ export const getBasket = createAsyncThunk<IBasket[], undefined, { rejectValue: s
     }
   }
 )
+export const deleteBasket = createAsyncThunk<IBasket[], string, { rejectValue: string }>(
+  'basket/deleteBasket',
+  async (id, { rejectWithValue }) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + String(localStorage.getItem('token'))
+      }
+    }
+    try {
+      const response = await axios.get(`http://localhost:7777/basket/delete/user/${id}`, config)
+
+      const data = await response.data
+
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 interface basketState {
   basket: IBasket[]
   isLoading: boolean
