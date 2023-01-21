@@ -1,12 +1,13 @@
 import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
-import { getBasket } from 'store/features/basketAndLikeSlice'
-import { getProduct } from 'store/features/productSlice'
-import { dataUser } from 'store/features/userSlice'
+import { getBasket } from 'store/slice/basketAndLikeSlice'
+import { getProduct } from 'store/slice/productSlice'
+import { dataUser } from 'store/slice/userSlice'
 
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
+import { ShoppingCartButton } from '../saveButtons/ShoppingCartButton'
 
 export const MainProducts: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -16,7 +17,7 @@ export const MainProducts: React.FC = () => {
   }
 
   const product = useAppSelector((state) => state.product.product)
-const basket = useAppSelector((state) => state.basket.basket)
+  console.log(product)
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
 
@@ -29,7 +30,7 @@ const basket = useAppSelector((state) => state.basket.basket)
   return (
     <div className='mx-full w-auto mt-7 font-[Montserrat] '>
       <div className='text-lg cursor-pointer text-blue-600'>Главная страница</div>
-      <div className='mx-auto flex w-auto flex-wrap pl-1'>
+      <div className='mx-auto flex flex-wrap'>
         {isLoading ? (
           <GoodsLoading />
         ) : (
@@ -51,14 +52,11 @@ const basket = useAppSelector((state) => state.basket.basket)
                   <img className='w-full h-full object-cover' src={item.photo[0]} />
                 </div>
                 <div className='pt-2 pl-[15px] bg-white'>
-                  <div className='pb-1 text-sm'>{item.name}</div>
-                  <div className='text-sm pr-5 pb-3 flex items-center relative'>
-                    <span className='text-gray-500 pr-3'>Цена:</span>
-                    {item.price} руб
-                    {item.people.map((filterItem) => {
-                      return filterItem === '63c29b265cbbe13ef244dbc2' && 1
-                    })}
-                    {item.people.length === 0 && 2}
+                  <div className='pb-1 text-base'>{item.price} ₽</div>
+                  <div className='text-sm pr-3 pb-3 flex items-center relative'>
+                    <span className='text-gray-500 pr-3 text-base'>{item.name} </span>
+
+                    <ShoppingCartButton itemProduct={item} />
                   </div>
                 </div>
               </div>

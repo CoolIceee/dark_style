@@ -3,7 +3,7 @@ import { BasketPage } from 'components/pages/home/basket/BasketPage'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getCategory } from 'store/features/categorySlice'
+import { getCategory } from 'store/slice/categorySlice'
 
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'

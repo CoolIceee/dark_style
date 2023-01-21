@@ -12,11 +12,12 @@ export const Header: React.FC = () => {
           <li className='px-2 flex self-center'>
             <Logo />
           </li>
-          <li className='px-10 flex self-center'>
-            <Search />
-          </li>
+          <li className='px-10 flex self-center'></li>
         </ul>
         <ul className='flex self-center justify-end w-full h-full'>
+          <li className='px-2 flex self-center'>
+            <Search />
+          </li>
           <li className='px-2 flex self-center'>
             <Profile />
           </li>

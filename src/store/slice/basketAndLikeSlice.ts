@@ -21,23 +21,7 @@ export const addBasket = createAsyncThunk<IBasket[], string, { rejectValue: stri
     }
   }
 )
-export const addShoppingCart = createAsyncThunk<IBasket[], string, { rejectValue: string }>(
-  'basket/addShoppingCart',
-  async (id, { rejectWithValue }) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: 'Bearer ' + String(localStorage.getItem('token'))
-        }
-      }
-      const response = await axios.post(`http://localhost:7777/basket/add/user/${id}`, {}, config)
-      const data = await response.data
-      return data
-    } catch (error: any) {
-      return rejectWithValue(error.message)
-    }
-  }
-)
+
 export const getBasket = createAsyncThunk<IBasket[], undefined, { rejectValue: string }>(
   'basket/getBasket',
   async (_, { rejectWithValue }) => {
@@ -103,19 +87,7 @@ const basketSlice = createSlice({
       .addCase(getBasket.rejected, (state, action) => {
         state.error = action.payload
       })
-    builder
-      .addCase(addShoppingCart.pending, (state, action) => {
-        state.isLoading = true
-        state.error = null
-      })
-      .addCase(addShoppingCart.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.basket = action.payload
-      })
-      .addCase(addShoppingCart.rejected, (state, action) => {
-        state.isLoading = false
-        state.error = action.payload
-      })
+   
   }
 })
 export default basketSlice.reducer

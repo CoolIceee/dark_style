@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'hooks/hooks'
 import { useState } from 'react'
-import { loginUser } from 'store/features/authSlice'
+import { loginUser } from 'store/slice/authSlice'
 
 export const AuthPage: React.FC = () => {
   const dispatch = useAppDispatch()

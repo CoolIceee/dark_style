@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { getCategory } from 'store/features/categorySlice'
+import { getCategory } from 'store/slice/categorySlice'
 
 export const Categories: React.FC = () => {
   const isPath = useLocation()

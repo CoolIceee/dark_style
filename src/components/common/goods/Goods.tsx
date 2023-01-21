@@ -5,8 +5,8 @@ import {
   getOneGenderProduct,
   getSubcategoryProduct,
   getProductByCategory
-} from 'store/features/productSlice'
-import { getACategory } from '../../../store/features/subcategoriesSlice'
+} from 'store/slice/productSlice'
+import { getACategory } from '../../../store/slice/subcategoriesSlice'
 
 import arrow from '../../../assets/arrow.png'
 

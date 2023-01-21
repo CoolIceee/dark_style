@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authSlice from './features/authSlice'
-import basketSlice from './features/basketAndLikeSlice'
-import categorySlice from './features/categorySlice'
-import productCategorySlice from './features/productCategorySlice'
-import productSlice from './features/productSlice'
-import subcategoriesSlice from './features/subcategoriesSlice'
-import userSlice from './features/userSlice'
+import authSlice from './slice/authSlice'
+import basketSlice from './slice/basketAndLikeSlice'
+import categorySlice from './slice/categorySlice'
+import productCategorySlice from './slice/productCategorySlice'
+import productSlice from './slice/productSlice'
+import subcategoriesSlice from './slice/subcategoriesSlice'
+import userSlice from './slice/userSlice'
 export const store = configureStore({
   reducer: {
     category: categorySlice,

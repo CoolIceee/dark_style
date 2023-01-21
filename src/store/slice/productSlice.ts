@@ -55,8 +55,23 @@ export const getSubcategoryProduct = createAsyncThunk<IProduct[], string, { reje
   }
 )
 
-
-
+export const addShoppingCart = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
+  'basket/addShoppingCart',
+  async (id, { rejectWithValue }) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + String(localStorage.getItem('token'))
+        }
+      }
+      const response = await axios.post(`http://localhost:7777/product/add/user/${id}`, {}, config)
+      const data = await response.data
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 
 interface CategoryState {
   product: IProduct[]
@@ -75,6 +90,16 @@ const productSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder
+      .addCase(addShoppingCart.pending, (state, action) => {
+        state.error = null
+      })
+      .addCase(addShoppingCart.fulfilled, (state, action) => {
+        // state.product = action.payload
+      })
+      .addCase(addShoppingCart.rejected, (state, action) => {
+        state.error = action.payload
+      })
     builder
       .addCase(getProduct.pending, (state, action) => {
         state.product = []
@@ -127,7 +152,6 @@ const productSlice = createSlice({
       .addCase(getSubcategoryProduct.rejected, (state, action) => {
         state.error = action.payload
       })
-   
   }
 })
 export default productSlice.reducer
