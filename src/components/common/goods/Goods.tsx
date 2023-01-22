@@ -3,12 +3,11 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import {
   getOneGenderProduct,
-  getSubcategoryProduct,
-  getProductByCategory
-} from 'store/slice/productSlice'
-import { getACategory } from '../../../store/slice/subcategoriesSlice'
+  getProductByCategory,
+  getSubcategoryProduct} from 'store/slice/productSlice'
 
 import arrow from '../../../assets/arrow.png'
+import { getACategory } from '../../../store/slice/subcategoriesSlice'
 
 interface categoryProps {
   categoryId: string

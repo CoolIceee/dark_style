@@ -1,4 +1,4 @@
-import { GoodsLoading } from 'components/app/GoodsLoading/GoodsLoading'
+import { GoodsLoading } from 'components/common/skeleton/GoodsLoading'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect, useState } from 'react'
 import { getBasket } from 'store/slice/basketAndLikeSlice'
@@ -7,7 +7,7 @@ import { dataUser } from 'store/slice/userSlice'
 
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
-import { ShoppingCartButton } from '../saveButtons/ShoppingCartButton'
+import { ShoppingCartButton } from '../userSaveButtons/ShoppingCartButton'
 
 export const MainProducts: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -17,7 +17,6 @@ export const MainProducts: React.FC = () => {
   }
 
   const product = useAppSelector((state) => state.product.product)
-  console.log(product)
   const isLoading = useAppSelector((state) => state.product.isLoading)
   const [addLike, setAddLike] = useState(false)
 

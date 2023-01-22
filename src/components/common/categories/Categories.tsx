@@ -19,10 +19,10 @@ export const Categories: React.FC = () => {
         <ul className='flex justify-between '>
           {isLoading ? (
             <>
-              <span className='w-[100px] bg-gray-200  h-[21px] rounded-[5px]'></span>
-              <span className='w-[100px] bg-gray-200  h-[21px] rounded-[5px]'></span>
-              <span className='w-[100px] bg-gray-200  h-[21px] rounded-[5px]'></span>
-              <span className='w-[100px] bg-gray-200  h-[21px] rounded-[5px]'></span>
+              <span className='w-[100px] bg-gray-200  h-[24px] rounded-[5px]'></span>
+              <span className='w-[100px] bg-gray-200  h-[24px] rounded-[5px]'></span>
+              <span className='w-[100px] bg-gray-200  h-[24px] rounded-[5px]'></span>
+              <span className='w-[100px] bg-gray-200  h-[24px] rounded-[5px]'></span>
             </>
           ) : (
             <>

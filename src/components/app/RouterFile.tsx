@@ -1,5 +1,5 @@
 import { MainProducts } from 'components/common/mainProducts/MainProducts'
-import { BasketPage } from 'components/pages/home/basket/BasketPage'
+import { BasketPage } from 'components/pages/basket/BasketPage'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
@@ -7,7 +7,7 @@ import { getCategory } from 'store/slice/categorySlice'
 
 import { Goods } from '../common/goods/Goods'
 import { Cards } from '../common/goods/productСards/CardsCategory'
-import { AuthPage } from '../pages/home/auth/AuthPage'
+import { AuthPage } from '../pages/auth/AuthPage'
 import { HomePage } from '../pages/home/HomePage'
 
 export const RouterFile: React.FC = () => {
@@ -17,6 +17,7 @@ export const RouterFile: React.FC = () => {
   useEffect(() => {
     dispatch(getCategory())
   }, [dispatch])
+
   return (
     <Routes>
       <Route path='/' element={<HomePage />}>
@@ -32,9 +33,9 @@ export const RouterFile: React.FC = () => {
             </Route>
           )
         })}
+        <Route path='basket' element={<BasketPage />} />
       </Route>
       <Route path='/sing/in' element={<AuthPage />} />
-      <Route path='/basket' element={<BasketPage />} />
     </Routes>
   )
 }

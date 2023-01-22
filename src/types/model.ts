@@ -8,7 +8,7 @@ export interface ICategory {
 export interface IBasket {
   _id: string
   user: string
-  product: string
+  product: IProduct
   __v: number
 }
 
