@@ -7,7 +7,8 @@ import { dataUser } from 'store/slice/userSlice'
 
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
-import { ShoppingCartButton } from '../userSaveButtons/ShoppingCartButton'
+
+import { ShoppingCartButton } from './userSaveButtons/ShoppingCartButton'
 
 export const MainProducts: React.FC = () => {
   const dispatch = useAppDispatch()

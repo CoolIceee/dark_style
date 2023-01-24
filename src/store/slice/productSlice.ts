@@ -64,7 +64,7 @@ export const addShoppingCart = createAsyncThunk<IProduct[], string, { rejectValu
           Authorization: 'Bearer ' + String(localStorage.getItem('token'))
         }
       }
-      const response = await axios.post(`http://localhost:7777/product/add/user/${id}`, {}, config)
+      const response = await axios.post(`http://localhost:7777/basket/add/user/${id}`, {}, config)
       const data = await response.data
       return data
     } catch (error: any) {

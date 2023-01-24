@@ -21,7 +21,25 @@ export const addBasket = createAsyncThunk<IBasket[], string, { rejectValue: stri
     }
   }
 )
+export const deleteProductBasket = createAsyncThunk<IBasket[], string, { rejectValue: string }>(
+  'basket/deleteProductBasket',
+  async (id, { rejectWithValue }) => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + String(localStorage.getItem('token'))
+      }
+    }
+    try {
+      const response = await axios.delete(`http://localhost:7777/basket/delete/user/${id}`, config)
 
+      const data = await response.data
+
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 export const getBasket = createAsyncThunk<IBasket[], undefined, { rejectValue: string }>(
   'basket/getBasket',
   async (_, { rejectWithValue }) => {
@@ -87,7 +105,6 @@ const basketSlice = createSlice({
       .addCase(getBasket.rejected, (state, action) => {
         state.error = action.payload
       })
-   
   }
 })
 export default basketSlice.reducer
