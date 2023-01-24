@@ -1,0 +1,6 @@
+{
+  "mongoUri": "mongodb+srv://Magomed:IMmagomed0895@cluster0.qo1p7.mongodb.net/limon",
+  "bcrypt": 10,
+  "SecretKay": "Magomed",
+  "port": 7777
+}
