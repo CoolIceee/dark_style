@@ -1,35 +1,23 @@
-import { MainProducts } from 'components/common/mainProducts/MainProducts'
-import { useAppDispatch, useAppSelector } from 'hooks/hooks'
+import { useAppSelector } from 'hooks/hooks'
+import { ReceiptProducts } from 'modules/ReceiptProducts'
 import { BasketPage } from 'pages/basket/BasketPage'
-import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getCategory } from 'store/slice/categorySlice'
 
 import { AuthPage } from '../../pages/auth/AuthPage'
 import { HomePage } from '../../pages/home/HomePage'
 import { Goods } from '../common/goods/Goods'
-import { Cards } from '../common/goods/productСards/CardsCategory'
 
 export const RouterFile: React.FC = () => {
   const category = useAppSelector((state) => state.category.category)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(getCategory())
-  }, [dispatch])
 
   return (
     <Routes>
       <Route path='/' element={<HomePage />}>
-        <Route index element={<MainProducts />} />
+        <Route index element={<ReceiptProducts styleContainer={'flex flex-wrap'} />} />
         {category?.map((item) => {
           return (
-            <Route
-              path={item._id}
-              element={<Goods categoryId={item._id} categoryName={item.name} />}
-              key={item._id}
-            >
-              <Route index element={<Cards id={item._id} />} />
+            <Route path={item._id} element={<Goods categoryId={item._id} categoryName={item.name} />} key={item._id}>
+              <Route index element={<ReceiptProducts styleContainer={'flex flex-wrap w-4/5'} id={item._id} />} />
             </Route>
           )
         })}

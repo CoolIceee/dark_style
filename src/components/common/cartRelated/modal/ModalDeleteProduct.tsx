@@ -14,7 +14,6 @@ export const ModalDeleteProduct: React.FC<ModalDeleteProductProps> = ({ setActiv
     setActive(false)
     await dispatch(deleteProductBasket(id))
     dispatch(getBasket())
-    
   }
   return (
     <div className='w-[350px] flex '>
@@ -32,10 +31,7 @@ export const ModalDeleteProduct: React.FC<ModalDeleteProductProps> = ({ setActiv
           >
             Удалить
           </button>
-          <button
-            onClick={() => setActive(false)}
-            className='flex justify-center items-center p-2 border-2 ml-2 text-black text-sm rounded-md '
-          >
+          <button onClick={() => setActive(false)} className='flex justify-center items-center p-2 border-2 ml-2 text-black text-sm rounded-md '>
             Отменить
           </button>
         </div>

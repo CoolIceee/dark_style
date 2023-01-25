@@ -1,10 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import {
-  getOneGenderProduct,
-  getProductByCategory,
-  getSubcategoryProduct} from 'store/slice/productSlice'
+import { getOneGenderProduct, getProductByCategory, getSubcategoryProduct } from 'store/slice/productSlice'
 
 import arrow from '../../../assets/arrow.png'
 import { getACategory } from '../../../store/slice/subcategoriesSlice'

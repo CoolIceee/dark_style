@@ -1,10 +1,9 @@
-interface ButtonProps extends React.HTMLProps<HTMLAnchorElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   styleButtonContainer?: string
-  onClickFunction: Function
 }
-export const Button: React.FC<ButtonProps> = ({ children, styleButtonContainer, onClickFunction }) => {
+export const Button: React.FC<ButtonProps> = ({ children, styleButtonContainer, onClick }) => {
   return (
-    <button onClick={onClickFunction()} className={styleButtonContainer}>
+    <button onClick={onClick} className={styleButtonContainer}>
       {children}
     </button>
   )

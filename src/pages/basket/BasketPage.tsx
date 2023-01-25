@@ -25,7 +25,6 @@ export const BasketPage: React.FC = () => {
             <ItemFromCart />
           </div>
             <SummaryWindow />
-          
           <div></div>
         </div>
         <div></div>
