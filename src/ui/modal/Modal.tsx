@@ -1,7 +1,7 @@
 import './Modal.css'
 interface ModalProps extends React.HTMLProps<HTMLElement> {
   active: boolean
-  setActive: any
+  setActive: Function
 }
 
 export const Modal: React.FC<ModalProps> = ({ active, setActive, children }) => {

@@ -1,14 +1,14 @@
 import { MainProducts } from 'components/common/mainProducts/MainProducts'
-import { BasketPage } from 'pages/basket/BasketPage'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
+import { BasketPage } from 'pages/basket/BasketPage'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { getCategory } from 'store/slice/categorySlice'
 
-import { Goods } from '../common/goods/Goods'
-import { Cards } from '../common/goods/productСards/CardsCategory'
 import { AuthPage } from '../../pages/auth/AuthPage'
 import { HomePage } from '../../pages/home/HomePage'
+import { Goods } from '../common/goods/Goods'
+import { Cards } from '../common/goods/productСards/CardsCategory'
 
 export const RouterFile: React.FC = () => {
   const category = useAppSelector((state) => state.category.category)

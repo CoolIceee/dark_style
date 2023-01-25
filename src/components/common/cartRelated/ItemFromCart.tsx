@@ -4,7 +4,7 @@ import { useState } from 'react'
 import basketDelete from '../../../assets/basketDelete.png'
 import like from '../../../assets/like.png'
 import redLike from '../../../assets/redLike.png'
-import { Modal } from '../modal/Modal'
+import { Modal } from '../../../ui/modal/Modal'
 
 import { ModalDeleteProduct } from './modal/ModalDeleteProduct'
 import { EmptyBasket } from './EmptyBasket'

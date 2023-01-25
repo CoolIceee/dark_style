@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
 import { getBasket } from 'store/slice/basketAndLikeSlice'
 
-import '../../../index.css'
+import '../../index.css'
 export const BasketPage: React.FC = () => {
   const dispatch = useAppDispatch()
 
