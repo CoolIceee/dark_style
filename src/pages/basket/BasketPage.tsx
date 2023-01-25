@@ -19,14 +19,13 @@ export const BasketPage: React.FC = () => {
       <div className='text-lg cursor-pointer text-blue-600'>Главная страница - Корзина</div>
       <div>
         <div className='mt-5 w-full flex justify-between'>
-          <div className='text-xl relative md:font-bold basket_counter font-[Unbounded] py-5 w-[60%]'>
+          <div className='text-xl relative md:font-bold basket_counter font-[Unbounded] py-5 w-[70%]'>
             <span className='pl-5'>Корзина</span>
             <span className='text-xs absolute'>{basket.length}</span>
             <ItemFromCart />
           </div>
-          <div className='basket_counter w-[30%] h-[300px]'>
             <SummaryWindow />
-          </div>
+          
           <div></div>
         </div>
         <div></div>
