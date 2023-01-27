@@ -1,7 +1,8 @@
-import { ProductCard } from 'components/productCard/ProductCard'
+import { ProductCard } from 'components/module/ReceiptProducts/components/сard/ProductCard'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useEffect } from 'react'
-import { getOneGenderProduct } from 'store/slice/productSlice'
+
+import { getOneGenderProduct } from '../../../../store/slice/productSlice'
 
 import { ButtonCart } from './buttonBehavior/ButtonCart'
 import { ButtonLike } from './buttonBehavior/ButtonLike'
@@ -14,7 +15,7 @@ interface ReceiptProductsProps {
 export const ReceiptProducts: React.FC<ReceiptProductsProps> = ({ id, styleContainer }) => {
   const dispatch = useAppDispatch()
   const product = useAppSelector((state) => state.product.product)
-  console.log(id)
+
   useEffect(() => {
     id != null && dispatch(getOneGenderProduct(id))
   }, [dispatch, id])

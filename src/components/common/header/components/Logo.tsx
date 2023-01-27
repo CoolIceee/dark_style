@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import cap from '../../../assets/cap.png'
+import cap from '../../../../assets/cap.png'
 
 export const Logo: React.FC = () => {
   const navigate = useNavigate()

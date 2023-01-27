@@ -1,8 +1,8 @@
-import { Basket } from './Basket'
-import { Heart } from './Heart'
-import { Logo } from './Logo'
-import { Profile } from './Profile'
-import { Search } from './Search'
+import { Basket } from './components/Basket'
+import { Heart } from './components/Heart'
+import { Logo } from './components/Logo'
+import { Profile } from './components/Profile'
+import { Search } from './components/Search'
 
 export const Header: React.FC = () => {
   return (

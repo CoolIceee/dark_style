@@ -2,18 +2,15 @@ import axios from 'axios'
 import { IProduct } from 'types/model'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue: string }>(
-  'product/getProduct',
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(`http://localhost:7777/product/get`)
-      const data = await response.data
-      return data
-    } catch (error: any) {
-      return rejectWithValue(error.message)
-    }
+export const getProduct = createAsyncThunk<IProduct[], undefined, { rejectValue: string }>('product/getProduct', async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get(`http://localhost:7777/product/get`)
+    const data = await response.data
+    return data
+  } catch (error: any) {
+    return rejectWithValue(error.message)
   }
-)
+})
 export const getOneGenderProduct = createAsyncThunk<IProduct[], string, { rejectValue: string }>(
   'product/getOneGenderProduct',
   async (id, { rejectWithValue }) => {
@@ -30,9 +27,7 @@ export const getProductByCategory = createAsyncThunk<IProduct[], string, { rejec
   'product/getProductByCategory',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:7777/product/get/subcategory/product/${id}`
-      )
+      const response = await axios.get(`http://localhost:7777/product/get/subcategory/product/${id}`)
       const data = await response.data
       return data
     } catch (error: any) {
@@ -44,9 +39,7 @@ export const getSubcategoryProduct = createAsyncThunk<IProduct[], string, { reje
   'product/getSubcategoryProduct',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:7777/product/get/subcategory/category/product/${id}`
-      )
+      const response = await axios.get(`http://localhost:7777/product/get/subcategory/category/product/${id}`)
       const data = await response.data
       return data
     } catch (error: any) {
@@ -90,16 +83,6 @@ const productSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(addShoppingCart.pending, (state, action) => {
-        state.error = null
-      })
-      .addCase(addShoppingCart.fulfilled, (state, action) => {
-        // state.product = action.payload
-      })
-      .addCase(addShoppingCart.rejected, (state, action) => {
-        state.error = action.payload
-      })
     builder
       .addCase(getProduct.pending, (state, action) => {
         state.product = []

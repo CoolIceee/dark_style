@@ -1,4 +1,4 @@
-import heartImg from '../../../assets/heart.png'
+import heartImg from '../../../../assets/heart.png'
 
 export const Heart: React.FC = () => {
   return (

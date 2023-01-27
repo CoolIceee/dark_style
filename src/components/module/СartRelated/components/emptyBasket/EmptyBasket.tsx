@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import shopping from '../../../assets/shopping.png'
+import shopping from '../../../../../assets/shopping.png'
 
 export const EmptyBasket: React.FC = () => {
   return (

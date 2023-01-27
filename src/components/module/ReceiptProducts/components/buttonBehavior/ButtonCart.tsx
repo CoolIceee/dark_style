@@ -1,9 +1,9 @@
+import { Button } from 'components/ui/button/Button'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useState } from 'react'
 import { getBasket } from 'store/slice/basketAndLikeSlice'
 import { addShoppingCart } from 'store/slice/productSlice'
 import { IProduct } from 'types/model'
-import { Button } from 'ui/button/Button'
 interface ButtonCartProps extends React.HTMLProps<HTMLAnchorElement> {
   product: IProduct
 }

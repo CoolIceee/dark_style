@@ -1,6 +1,7 @@
 import { useAppSelector } from 'hooks/hooks'
 
-import agree from '../../../assets/agree.png'
+import agree from '../../../../../assets/agree.png'
+
 export const SummaryWindow: React.FC = () => {
   const basket = useAppSelector((state) => state.basket.basket)
   let sum = 0
@@ -26,16 +27,14 @@ export const SummaryWindow: React.FC = () => {
         </div>
         <div className='py-4 text-lg'>
           <b>Доставка: &ensp;</b>
-          <span className='text-blue-600 border-b-2 border-dashed border-blue-600 cursor-pointer text-base'>
-            Выбрать адрес доставки
-          </span>
+          <span className='text-blue-600 border-b-2 border-dashed border-blue-600 cursor-pointer text-base'>Выбрать адрес доставки</span>
         </div>
         <button className='my-3 w-full h-[50px] bg-blue-600 text-white rounded-md'>Заказать</button>
         <div className='py-5 text-lg flex'>
           <img src={agree} className='w-[15px] h-[15px]' />
           <span className='text-xs ml-2'>
-            <span className='text-gray-500'>Согласен с условиями</span> Правил пользования торговой
-            площадкой <span className='text-gray-500'>и</span> правилами возврата
+            <span className='text-gray-500'>Согласен с условиями</span> Правил пользования торговой площадкой <span className='text-gray-500'>и</span>{' '}
+            правилами возврата
           </span>
         </div>
       </div>

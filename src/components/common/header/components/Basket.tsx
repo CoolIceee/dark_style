@@ -1,7 +1,7 @@
 import { useAppSelector } from 'hooks/hooks'
 import { NavLink } from 'react-router-dom'
 
-import basketImg from '../../../assets/basket.png'
+import basketImg from '../../../../assets/basket.png'
 
 export const Basket: React.FC = () => {
   const basket = useAppSelector((state) => state.basket.basket)

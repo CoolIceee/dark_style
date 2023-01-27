@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import search from '../../../assets/search.png'
+import search from '../../../../assets/search.png'
 
 export const Search: React.FC = () => {
   const [dropdown, setDropdown] = useState<boolean>(false)

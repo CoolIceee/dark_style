@@ -1,6 +1,6 @@
-import { Button } from 'ui/button/Button'
+import { Button } from 'components/ui/button/Button'
 
-import like from '../../../../assets/like.png'
+import like from '../../../../../assets/like.png'
 
 export const ButtonLike: React.FC = () => {
   return (
