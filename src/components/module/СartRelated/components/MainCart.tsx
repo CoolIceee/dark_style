@@ -24,3 +24,5 @@ export const MainCart: React.FC = () => {
     </div>
   )
 }
+
+
