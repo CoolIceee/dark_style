@@ -13,10 +13,11 @@ export const MainCart: React.FC = () => {
     dispatch(getBasket())
   }, [dispatch])
   return (
-    <div className='mt-5 w-full flex justify-between'>
+    <div className='mt-5 w-full flex justify-between h-full'>
       <div className='text-xl relative md:font-bold basket_counter font-[Unbounded] py-5 w-[70%]'>
-        <span className='pl-5'>Корзина</span>
-        <span className='text-xs absolute'>{basket.length}</span>
+        <div className='w-[90%] mx-auto'>
+          Корзина<span className='text-xs absolute'>{basket.length}</span>
+        </div>
         <ItemFromCart />
       </div>
       <SummaryWindow />
@@ -24,5 +25,3 @@ export const MainCart: React.FC = () => {
     </div>
   )
 }
-
-

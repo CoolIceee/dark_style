@@ -17,7 +17,7 @@ export const ItemFromCart: React.FC = () => {
       {basket.length !== 0 ? (
         basket?.map((item) => {
           return (
-            <div key={item._id} className='mt-5 flex mx-auto font-[Montserrat] w-[95%]'>
+            <div key={item._id} className='mt-5 flex mx-auto font-[Montserrat] w-[90%]'>
               <Modal active={modalActive} setActive={setModalActive}>
                 <ModalDeleteProduct setActive={setModalActive} id={item.product._id} />
               </Modal>

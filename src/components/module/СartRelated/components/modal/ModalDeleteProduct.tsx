@@ -5,7 +5,7 @@ import { deleteProductBasket, getBasket } from 'store/slice/basketAndLikeSlice'
 import risk from '../../../../../assets/risk.png'
 
 interface ModalDeleteProductProps extends React.HTMLProps<HTMLElement> {
-  setActive: Function
+  setActive: React.Dispatch<React.SetStateAction<boolean>>
   id: string
 }
 
@@ -33,7 +33,9 @@ export const ModalDeleteProduct: React.FC<ModalDeleteProductProps> = ({ setActiv
             Удалить
           </Button>
           <Button
-            onClick={() => setActive(false)}
+            onClick={() => {
+              setActive(false)
+            }}
             styleButtonContainer='flex justify-center items-center p-2 border-2 ml-2 text-black text-sm rounded-md '
           >
             Отменить

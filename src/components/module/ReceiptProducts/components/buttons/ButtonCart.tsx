@@ -1,6 +1,7 @@
 import { Button } from 'components/ui/button/Button'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getBasket } from 'store/slice/basketAndLikeSlice'
 import { addShoppingCart } from 'store/slice/productSlice'
 import { IProduct } from 'types/model'
@@ -11,10 +12,15 @@ export const ButtonCart: React.FC<ButtonCartProps> = ({ product }) => {
   const dispatch = useAppDispatch()
   const user = useAppSelector((state) => state.user.userDate)
   const [inBasket, setInBasket] = useState(false)
+  const navigate = useNavigate()
   const handleClickAddBasketProduct = async (id: string): Promise<void> => {
-    setInBasket(!inBasket)
-    await dispatch(addShoppingCart(id))
-    dispatch(getBasket())
+    if (user.length === 0) {
+      navigate('/sing/in')
+    } else {
+      setInBasket(!inBasket)
+      await dispatch(addShoppingCart(id))
+      dispatch(getBasket())
+    }
   }
   const addInBasketButton = (
     <Button
