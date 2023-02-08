@@ -3,7 +3,7 @@ import heartImg from '../../../../assets/heart.png'
 export const Heart: React.FC = () => {
   return (
     <>
-      <img className='w-full h-8' src={heartImg} alt='heart' />
+      <img className='max-w-full max-h-full' src={heartImg} alt='heart' />
     </>
   )
 }

@@ -7,7 +7,7 @@ export const Logo: React.FC = () => {
   return (
     <>
       <button onClick={() => { navigate('/'); }} className='flex justify-center'>
-        <img src={cap} alt='cap' className='w-full h-[60px]' />
+        <img src={cap} alt='cap' className='max-w-full max-h-full' />
       </button>
     </>
   )
