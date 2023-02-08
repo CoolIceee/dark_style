@@ -17,7 +17,7 @@ export const Categories: React.FC = () => {
 
   return (
     <>
-      <div className='mx-auto mt-5 w-auto'>
+      <div className='text-[0px] md:opacity-100 mx-auto mt-5 w-auto'>
         <ul className='flex justify-between '>
           {isLoading ? (
             <CategoriesLoader />
@@ -25,16 +25,16 @@ export const Categories: React.FC = () => {
             <>
               {category?.map((item) => {
                 return (
-                  <li className='text-[14px]' key={item._id}>
+                  <li className='text-xs xl:text-base' key={item._id}>
                     <NavLink className={isPath.pathname === '/' + item._id ? 'border-b-[3px] border-solid border-blue-600' : ''} to={item._id}>
                       {item.name.toUpperCase()}
                     </NavLink>
                   </li>
                 )
               })}
-              <li>{`Одежда`.toUpperCase()}</li>
-              <li>{`Аксуссуары`.toUpperCase()}</li>
-              <li>{`Бренды`.toUpperCase()}</li>
+              <li className='text-xs xl:text-base'>{`Одежда`.toUpperCase()}</li>
+              <li className='text-xs xl:text-base'>{`Аксуссуары`.toUpperCase()}</li>
+              <li className='text-xs xl:text-base'>{`Бренды`.toUpperCase()}</li>
             </>
           )}
         </ul>
