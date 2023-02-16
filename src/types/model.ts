@@ -21,6 +21,7 @@ export interface IProduct {
   quantity: number
 }
 
+
 export interface ICategory {
   _id: string
   name: string
