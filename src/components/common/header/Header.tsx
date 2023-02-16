@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
       <div className='flex h-auto px-9 max-w-full sticky top-0 bg-white'>
         <nav className='justify-between w-50 mx-auto self-center  h-full sm:justify-between xl:flex xl:w-full  xl:h-20 xl:mx-0 sm:mx-0 sm:w-full sm:flex sm:h-20'>
           <ul className='flex w-[70%] h-full pt-2 mx-auto  xl:w-[35%]'>
-            <li className='px-2 flex self-center h-12  mx-auto xl:w-[35%] xl:mx-0 sm:mx-0'>
+            <li className='px-2 flex self-center h-14 mx-auto xl:w-[35%] xl:mx-0 sm:mx-0 sm:h-12'>
               <Logo />
             </li>
           </ul>
@@ -22,10 +22,10 @@ export const Header: React.FC = () => {
             </li>
           </ul>
           <ul className='flex fixed bottom-0 left-0 px-10 justify-between h-20 w-full xl:flex-row xl:p-0 xl:self-center xl:static xl:justify-end xl:w-[35%] xl:h-full sm:fixed sm:w-20 sm:flex-col sm:bottom-24 sm:h-auto sm:px-6'>
-            <li className='px-2 flex self-center w-12 sm:py-2'>
+            <li className='px-2  flex self-center w-12 xl:mr-2 sm:py-2'>
               <Profile />
             </li>
-            <li className='px-2 flex self-center w-12 sm:py-2'>
+            <li className='px-2  flex self-center w-12 xl:mr-2 sm:py-2'>
               <Heart />
             </li>
             <li className='px-2 flex self-center w-12 sm:py-2'>

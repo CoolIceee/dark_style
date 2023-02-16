@@ -1,12 +1,29 @@
-export interface ICategory {
-  _id: string
-  name: string
-}
-
 export interface IBasket {
   _id: string
   user: string
   product: IProduct
+}
+
+export interface IProduct {
+  _id: string
+  name: string
+  itemName: string
+  brand: string
+  people: string[]
+  gender: string
+  typeProduct: typeProduct
+  category: string
+  photo: string[]
+  dimensions: string[]
+  description: string
+  price: number
+  discountPrice: number
+  quantity: number
+}
+
+export interface ICategory {
+  _id: string
+  name: string
 }
 
 export interface IUser {
@@ -17,24 +34,12 @@ export interface IUser {
   password: string
   basket: any[]
 }
+
 export interface typeProduct {
   _id: string
   name: string
   category: string
   floorCategory: string
-}
-export interface IProduct {
-  _id: string
-  name: string
-  people: string[]
-  gender: string
-  typeProduct: typeProduct
-  brand: string
-  photo: string[]
-  dimensions: string[]
-  description: string
-  price: number
-  quantity: number
 }
 
 export interface ISubCategory {
