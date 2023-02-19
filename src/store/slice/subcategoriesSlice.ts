@@ -6,7 +6,7 @@ export const getACategory = createAsyncThunk<ISubCategory[], string, { rejectVal
   'subcategories/getACategory',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
+      const response = await axios.get(`http://localhost:7777/subcategories/gc/${id}`)
 
       const data = await response.data
 

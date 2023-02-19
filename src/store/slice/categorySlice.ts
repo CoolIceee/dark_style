@@ -6,7 +6,7 @@ export const getCategory = createAsyncThunk<ICategory[], undefined, { rejectValu
   'category/getCategory',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/category`)
+      const response = await axios.get(`http://localhost:7777/gender`)
       const data = await response.data
       return data
     } catch (error: any) {
@@ -18,7 +18,7 @@ export const getOneCategory = createAsyncThunk<ICategory[], string, { rejectValu
   'category/getOneCategory',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:7777/category/${id}`)
+      const response = await axios.get(`http://localhost:7777/gender/${id}`)
 
       const data = await response.data
 
