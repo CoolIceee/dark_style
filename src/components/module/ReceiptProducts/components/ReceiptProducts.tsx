@@ -17,7 +17,7 @@ export const ReceiptProducts: React.FC<ReceiptProductsProps> = ({ id, styleConta
   const dispatch = useAppDispatch()
   const product = useAppSelector((state) => state.product.product)
   const isLoading = useAppSelector((state) => state.product.isLoading)
-
+  console.log(product)
   useEffect(() => {
     id != null && dispatch(getOneGenderProduct(id))
   }, [dispatch, id])

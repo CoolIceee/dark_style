@@ -1,10 +1,12 @@
 import axios from 'axios'
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
 interface UserAttributes {
   login: string | undefined
   password: string | undefined
 }
+
 export const loginUser = createAsyncThunk<any, UserAttributes, { rejectValue: string }>(
   'auth/loginUser',
   async ({ login, password }, { rejectWithValue }) => {

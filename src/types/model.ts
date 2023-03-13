@@ -11,7 +11,7 @@ export interface IProduct {
   brand: string
   people: string[]
   gender: string
-  typeProduct: typeProduct
+  GenderCommodity: typeProduct
   category: string
   photo: string[]
   dimensions: string[]
