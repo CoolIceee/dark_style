@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
   return (
     <>
       <div className='h-20 max-w-full object-cover rounded-b-3xl' style={{ backgroundImage: `url(${bgImg as string})` }}></div>
-      <div className='flex h-auto px-9 max-w-full sticky top-0 bg-white'>
+      <div className='flex h-auto px-9 max-w-full sticky top-0 bg-white z-10'>
         <nav className='justify-between w-50 mx-auto self-center  h-full sm:justify-between xl:flex xl:w-full  xl:h-20 xl:mx-0 sm:mx-0 sm:w-full sm:flex sm:h-20'>
           <ul className='flex w-[70%] h-full pt-2 mx-auto  xl:w-[35%]'>
             <li className='px-2 flex self-center h-14 mx-auto xl:w-[35%] xl:mx-0 sm:mx-0 sm:h-12'>

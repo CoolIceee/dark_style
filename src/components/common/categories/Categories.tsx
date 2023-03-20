@@ -17,7 +17,7 @@ export const Categories: React.FC = () => {
 
   return (
     <>
-      <div className='text-[0px] md:opacity-100 mx-auto mt-5 w-auto'>
+      <div className='w-[97%] text-[0px] md:opacity-100 mx-auto mt-5 '>
         <ul className='w-0 sm:w-auto xl:w-auto flex justify-between '>
           {isLoading ? (
             <CategoriesLoader />

@@ -21,7 +21,7 @@ export const BasketPage: React.FC = () => {
         >
           Главная страница
         </NavLink>
-        - Корзина
+        &nbsp;- Корзина
       </div>
       <div className='h-full'>
         <MainCart />
