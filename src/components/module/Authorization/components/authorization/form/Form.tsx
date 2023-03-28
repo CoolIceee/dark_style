@@ -1,19 +1,21 @@
+import { Button } from 'components/ui/button/Button'
 import { useAppDispatch, useAppSelector } from 'hooks/hooks'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from 'store/slice/authSlice'
 
+import { Loader } from './loader/Loader'
+
 import './form.css'
 export const Form: React.FC = () => {
-  const [login, setLogin] = useState('')
+  const user = useAppSelector((state) => state.user.userDate)
   const navigate = useNavigate()
-  const [password, setPassword] = useState('')
   const dispatch = useAppDispatch()
-  const isLoading = useAppSelector((state) => state.auth.isLoading)
-  const token = useAppSelector((state) => state.auth.token)
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
   const handleClickAuthLogin = (): void => {
     dispatch(loginUser({ login, password }))
-    if (token != null) {
+    if (user.length !== 0) {
       navigate('/')
     }
   }
@@ -40,23 +42,14 @@ export const Form: React.FC = () => {
         }}
         value={password}
       />
-      <button
-        className='bg-blue-600 w-[70%] text-white mx-auto h-10 rounded-xl mb-3'
+      <Button
+        styleButtonContainer='bg-blue-600 w-[70%] text-white mx-auto h-10 rounded-xl mb-3'
         onClick={() => {
           handleClickAuthLogin()
         }}
       >
-        {isLoading ? (
-          <div className='lds-ellipsis'>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        ) : (
-          'Войти'
-        )}
-      </button>
+        <Loader />
+      </Button>
     </form>
   )
 }
