@@ -22,7 +22,8 @@ export const RouterFile: React.FC = () => {
         })}
         <Route path='basket' element={<BasketPage />} />
       </Route>
-      <Route path='/sing/in' element={<AuthPage />} />
+      <Route path='/sing/in' element={<AuthPage />}></Route>
+      
     </Routes>
   )
 }

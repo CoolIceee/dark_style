@@ -29,7 +29,7 @@ export const CategoryMenu: React.FC<categoryProps> = ({ categoryId, categoryName
   return (
     <>
       <div className='flex'>
-        <div className='w-1/5 h-full mt-10  rounded'>
+        <div className='w-1/5 h-full mt-10 rounded'>
           <div className='font-bold border-b-2 border-solid'>
             <Button
               onClick={() => {

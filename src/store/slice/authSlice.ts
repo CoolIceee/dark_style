@@ -23,28 +23,38 @@ export const loginUser = createAsyncThunk<any, UserAttributes, { rejectValue: st
     }
   }
 )
-export const registerUser = createAsyncThunk<any, string, { rejectValue: string }>(
-  'auth/registerUser',
-  async (id, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
-      const data = await response.data
-      return data
-    } catch (error: any) {
-      return rejectWithValue(error.message)
-    }
+export const registerUser = createAsyncThunk<any, string, { rejectValue: string }>('auth/registerUser', async (id, { rejectWithValue }) => {
+  try {
+    const response = await axios.get(`http://localhost:7777/subcategories/sub/${id}`)
+    const data = await response.data
+    return data
+  } catch (error: any) {
+    return rejectWithValue(error.message)
   }
-)
+})
 interface authState {
   token: string | null | boolean
+  isLoading: boolean
 }
 const initialState: authState = {
-  token: localStorage.getItem('token')
+  token: localStorage.getItem('token'),
+  isLoading: false
 }
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {}
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUser.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.isLoading = false
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false
+      })
+  }
 })
 export default authSlice.reducer

@@ -1,9 +1,18 @@
+import { NavLink } from 'react-router-dom'
+
+import { Form } from './form/Form'
 import { Header } from './header/Header'
 
 export const Authorization: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <div className='flex flex-col'>
+        <Form />
+        <NavLink to='/regi' className='mb-3 border-b-2  mx-auto text-center'>
+          Зарегистрироваться?
+        </NavLink>
+      </div>
+    </>
   )
 }

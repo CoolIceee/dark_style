@@ -45,6 +45,7 @@ export const ReceiptProducts: React.FC<ReceiptProductsProps> = ({ id, styleConta
                 </div>
               </div>
             </ProductCard>
+            
           )
         })
       )}
