@@ -8,16 +8,17 @@ import { Loader } from './loader/Loader'
 
 import './form.css'
 export const Form: React.FC = () => {
-  const user = useAppSelector((state) => state.user.userDate)
+  const token = useAppSelector((state) => state.auth.token)
+
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const handleClickAuthLogin = (): void => {
     dispatch(loginUser({ login, password }))
-    if (user.length !== 0) {
-      navigate('/')
-    }
+  }
+  if (token !== null) {
+    navigate('/')
   }
   return (
     <form

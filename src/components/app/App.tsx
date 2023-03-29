@@ -8,6 +8,7 @@ import { dataUser } from 'store/slice/userSlice'
 import { RouterFile } from './RouterFile'
 export const App: React.FC = () => {
   const dispatch = useAppDispatch()
+  
   useEffect(() => {
     dispatch(getCategory())
     dispatch(getProduct())

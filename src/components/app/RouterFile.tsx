@@ -1,5 +1,6 @@
 import { AuthorizationAnd } from 'components/module/Authorization'
 import { ReceiptProducts } from 'components/module/ReceiptProducts'
+import { Reistration } from 'components/module/Reistration'
 import { useAppSelector } from 'hooks/hooks'
 import { BasketPage } from 'pages/basket/BasketPage'
 import { Route, Routes } from 'react-router-dom'
@@ -22,7 +23,8 @@ export const RouterFile: React.FC = () => {
         })}
         <Route path='basket' element={<BasketPage />} />
       </Route>
-      <Route path='/sing/in' element={<AuthorizationAnd />}></Route>
+      <Route path='/sing/in' element={<AuthorizationAnd />} />
+      <Route path='/sing/up' element={<Reistration />} />
     </Routes>
   )
 }

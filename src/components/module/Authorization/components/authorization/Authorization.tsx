@@ -9,7 +9,7 @@ export const Authorization: React.FC = () => {
       <Header />
       <div className='flex flex-col'>
         <Form />
-        <NavLink to='/regi' className='mb-3 border-b-2  mx-auto text-center'>
+        <NavLink to='/sing/up' className='mb-3 border-b-2  mx-auto text-center'>
           Зарегистрироваться?
         </NavLink>
       </div>

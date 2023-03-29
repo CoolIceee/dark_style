@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import arrowLeft from '../../../../assets/arrowLeft.png'
 
-import { Authorization } from './authorization/Authorization'
-export const AuthorizationAnd: React.FC = () => {
+export const Reistration: React.FC = () => {
   const navigate = useNavigate()
 
   return (
@@ -22,7 +21,7 @@ export const AuthorizationAnd: React.FC = () => {
       </Button>
       <div className='h-screen flex items-center justify-center'>
         <div>
-          <Authorization />
+          {/* <Authorization /> */}
         </div>
       </div>
     </>
