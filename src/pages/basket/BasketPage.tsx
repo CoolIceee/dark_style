@@ -6,7 +6,7 @@ import { getProduct } from 'store/slice/productSlice'
 import '../../index.css'
 export const BasketPage: React.FC = () => {
   const dispatch = useAppDispatch()
-  
+
   const handleClickItemDataUpdate = (): void => {
     dispatch(getProduct())
   }

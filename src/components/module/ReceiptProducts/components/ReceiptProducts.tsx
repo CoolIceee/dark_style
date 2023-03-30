@@ -30,7 +30,7 @@ export const ReceiptProducts: React.FC<ReceiptProductsProps> = ({ id, styleConta
             <ProductCard
               key={item._id}
               styleCardContainer={
-                'w-[240px] ml-5 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
+                'w-[240px] mx-auto sm:ml-5 sm:mx-0 mt-5 cursor-pointer overflow-hidden border-[1px] border-gray-200 rounded-[8px] hover:scale-[1.03] transition ease-in shadow-lg shadow-gray-200'
               }
             >
               <div className='w-full h-[80%] relative  overflow-hidden'>

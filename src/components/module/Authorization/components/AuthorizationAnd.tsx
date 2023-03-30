@@ -13,10 +13,10 @@ export const AuthorizationAnd: React.FC = () => {
         onClick={() => {
           navigate(-1)
         }}
-        styleButtonContainer='w-40 h-screen absolute font-[Montserrat] flex hover:bg-gray-200 ease-in duration-200'
+        styleButtonContainer='xl:w-40 xl:h-screen absolute font-[Montserrat] xl:flex xl:hover:bg-gray-200 xl:ease-in xl:duration-200'
       >
-        <div className='text-blue-600 text-xl py-10 text-center flex items-center px-5 '>
-          <img className='w-auto h-5 px-2' src={arrowLeft} />
+        <div className='text-blue-600 text-base xl:text-xl py-10 text-center flex items-center px-5 '>
+          <img className='w-auto h-4 xl:h-5 px-2' src={arrowLeft} />
           назад
         </div>
       </Button>

@@ -21,7 +21,6 @@ export const MainCart: React.FC = () => {
         <ItemFromCart />
       </div>
       <SummaryWindow />
-      <div></div>
     </div>
   )
 }
