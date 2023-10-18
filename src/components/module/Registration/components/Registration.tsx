@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import arrowLeft from '../../../../assets/arrowLeft.png'
 
-export const Reistration: React.FC = () => {
+export const Registration: React.FC = () => {
   const navigate = useNavigate()
 
   return (
